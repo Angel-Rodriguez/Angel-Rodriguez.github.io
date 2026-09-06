@@ -1878,6 +1878,10 @@ text-shadow: none;
 
 
 
+@media screen and (max-width: 800px) {
+.item-view .Header h1, .sticky .Header h1 {
+font-size: 14pt;
+}}
 @media only screen and (max-width: 350px) {
 div.jump-link.flat-button.ripple {
 display:none !important;
@@ -1892,9 +1896,6 @@ line-height: 1em;
 }
 .blog-name {
 background-position: -75px -30px;
-}
-.blog-name h1 {
-//font-size: 70% !important;
 }
 .onedateh3 {
 max-width: calc(100% - 40px);
