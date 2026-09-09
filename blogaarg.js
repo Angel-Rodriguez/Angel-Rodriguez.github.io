@@ -186,7 +186,7 @@ for (var i=0;i<divs.length;i++){
 var divClass=new String(divs[i].className);
 if (divClass.indexOf("datestamp-container")>-1){
 var whatDate = new Date(Date.parse(divs[i].innerText));
-divs[i].innerHTML=dateToString(whatDate,"#");
+divs[i].innerHTML=dateToString(whatDate,"#").replace('aargdate', 'onedate');
 }//is date stamp
 }//for i
 }//function
@@ -264,9 +264,6 @@ if (h3.length > 0){
 h3[0].className='post-title entry-title onedateh3';
 }//if h3
 }//if post-header-line-1
-if (articleDivs[dc].className=='datestamp-container'){
-articleDivs[dc].innerHTML = timeString.replace('aargdate', 'onedate');
-}//if datestamp-container
 }//for dc
 }//else
 }//if articleTime
