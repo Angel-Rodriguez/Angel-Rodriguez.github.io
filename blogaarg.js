@@ -478,6 +478,9 @@ aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="'+randompostsurl+'"><
 widgetlinklistUL.innerHTML+='<li><a href="'+randompostsurl+'">'+randompoststitle+'</a></li>';}
 if (i==(maxPosts-1)){
 aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="https://aarg.blogspot.com/search/label/CD"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfhYZl8ASY2LBdj8FBHis1E4l38ARD5TMerwOoqvvyCUtu_6yBCkBX6Euc0w6KsXQWM2B6JyHl9DhTbuR8N48t_7Yp5YiVJeWRKxDJrxHCXmbmnws5OYLA137y8V6byvJlJqrXZA/s72-c/iTunesMascotByReef1600-DeviantArt3a.jpg" class="rcitemimg" alt="" title="Posts With CD Ratings"/></a><br/><a href="https://aarg.blogspot.com/search/label/CD" title="Posts With CD Ratings" class="rcitemtxt">Posts With CD Ratings</a></div>';
+
+aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="https://aarg.blogspot.com/search/label/Conventions"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMGwzyZNg1gSHw0817_QW_JlCWDjD3Sq6QRRl-fKhZzKhndDhQfd9-JsmRGlnZF9uRufKE3Tf0o8GMyi21zBLA0rJzM94A2UtmIpl3oFbWnAMQcRdM5Ym56rnT9Kel98T1wTgsUuPm_Cvsx6t82dEPO4_XFZxR6O79CsXYM4Fts61Ys9CZMeQ/s72-c/2022FanExpoBadge4d.jpg" class="rcitemimg" alt="" title="Convention Reports"/></a><br/><a href="https://aarg.blogspot.com/search/label/Conventions" title="Convention Reports" class="rcitemtxt">Convention Reports</a></div>';
+
 }//i==(maxPosts-1)
 }//for i<maxPosts
 }//function
