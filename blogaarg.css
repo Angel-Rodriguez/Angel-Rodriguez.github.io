@@ -1777,13 +1777,13 @@ border-radius: 12px;
 }
 .datestamp-container {
 position:relative;
-left:-15px;
-top:-5px;
+left:-5px;
+top:-22px;
 margin-top:30px;
 margin-bottom:30px;
 }
 .datestamp-container + h3 {
-padding-left:30px;
+padding-left:50px;
 }
 .aargcontainer span {
 float:right;
