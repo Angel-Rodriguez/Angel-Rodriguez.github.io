@@ -264,6 +264,9 @@ if (h3.length > 0){
 h3[0].className='post-title entry-title onedateh3';
 }//if h3
 }//if post-header-line-1
+if (articleDivs[dc].className=='datestamp-container'){
+articleDivs[dc].innerHTML = timeString.replace('aargdate', 'onedate');
+}//if datestamp-container
 }//for dc
 }//else
 }//if articleTime
