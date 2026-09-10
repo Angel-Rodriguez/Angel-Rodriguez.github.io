@@ -431,6 +431,7 @@ var d=document;
 var divs=d.getElementsByTagName('div');
 var popularposts;
 var cw = d.documentElement.clientWidth;
+var cu = new String(window.location).toLowerCase();
 var maxPosts = 6;
 if ((cw<769) && (cw>688)) {maxPosts=5;}
 if ((cw<689) && (cw>608)) {maxPosts=4;}
@@ -447,7 +448,6 @@ var popularpostsHeader;
 var popularpostsContent='';
 var aargcontentDiv;
 var widgetlinklist;
-//var widgetlinklistUL;
 divs=d.getElementsByTagName('div');
 for (var p=0;p<divs.length;p++){
 if (divs[p].className.indexOf('widget PopularPosts')>-1){
@@ -457,14 +457,10 @@ divs[p].innerHTML += "<div class='aargcontainer'></div>";
 }
 popularposts=divs[p];
 }
-if (divs[p].className=='widget LinkList'){
-widgetlinklist=divs[p];
-}
 }//for/if-p-divs
 var pps = new String(popularposts);
 if (pps!="undefined") {
 popularpostsDivs = popularposts.getElementsByTagName('div');
-//widgetlinklistUL = document.getElementById("random-links");
 popularpostsHeader = popularposts.getElementsByTagName('h3');
 popularpostsHeader[0].innerHTML="Popular and Random Posts";
 for (var r=0;r<popularpostsDivs.length;r++){
@@ -473,15 +469,15 @@ aargcontentDiv=popularpostsDivs[r];
 }}//for/if-r-popularpostsDivs
 
 aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="'+randompostsurl+'"><img src="'+noImageStr+'" data-src="'+randompoststhumb+'" class="rcitemimg" alt="" title="'+randompoststitle+'"/></a><br/><a href="'+randompostsurl+'" title="'+randompoststitle+'" class="rcitemtxt">'+randompoststitle+'</a></div>';
-
-//widgetlinklistUL.innerHTML+='<li><a href="'+randompostsurl+'">'+randompoststitle+'</a></li>';
 }
 if (i==(maxPosts-1)){
 aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="https://aarg.blogspot.com/search/label/CD"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfhYZl8ASY2LBdj8FBHis1E4l38ARD5TMerwOoqvvyCUtu_6yBCkBX6Euc0w6KsXQWM2B6JyHl9DhTbuR8N48t_7Yp5YiVJeWRKxDJrxHCXmbmnws5OYLA137y8V6byvJlJqrXZA/s72-c/iTunesMascotByReef1600-DeviantArt3a.jpg" class="rcitemimg" alt="" title="Posts With CD Ratings"/></a><br/><a href="https://aarg.blogspot.com/search/label/CD" title="Posts With CD Ratings" class="rcitemtxt">Posts With CD Ratings</a></div>';
 
 aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="https://aarg.blogspot.com/search/label/Conventions"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMGwzyZNg1gSHw0817_QW_JlCWDjD3Sq6QRRl-fKhZzKhndDhQfd9-JsmRGlnZF9uRufKE3Tf0o8GMyi21zBLA0rJzM94A2UtmIpl3oFbWnAMQcRdM5Ym56rnT9Kel98T1wTgsUuPm_Cvsx6t82dEPO4_XFZxR6O79CsXYM4Fts61Ys9CZMeQ/s72-c/2022FanExpoBadge4d.jpg" class="rcitemimg" alt="" title="Convention Reports"/></a><br/><a href="https://aarg.blogspot.com/search/label/Conventions" title="Convention Reports" class="rcitemtxt">Convention Reports</a></div>';
 
-aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="https://aarg.blogspot.com/p/flip-card-pho.html"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZVFb-joGJ124KkGYdH3CIdEQ3IS6u_mSF9sfjVjmpdbqheYFhBm8ramuNEGMEwawx_Qql3hpe-me1-eSgfqBipIy-4kbJrgP32pFuScd0ymO6Ut4ZkKH8cW1noCS5RQoQbS-JheWdp8sdqcXVanlmeNqzJzl8j9B6vPnqjrUbxjS5OgLihhhQMg/s72-c/CertainRailgunPointing1a.jpg" class="rcitemimg" alt="" title="Flipcard Gallery"/></a><br/><a href="https://aarg.blogspot.com/p/flip-card-pho.html" title="Flipcard Gallery" class="rcitemtxt">Flipcard Gallery</a></div>';
+if (cu.indexOf("flip-card-pho.html")==-1) {
+aargcontentDiv.innerHTML+='<div class="rcitembox" id="flipcardlink"><a href="https://aarg.blogspot.com/p/flip-card-pho.html"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZVFb-joGJ124KkGYdH3CIdEQ3IS6u_mSF9sfjVjmpdbqheYFhBm8ramuNEGMEwawx_Qql3hpe-me1-eSgfqBipIy-4kbJrgP32pFuScd0ymO6Ut4ZkKH8cW1noCS5RQoQbS-JheWdp8sdqcXVanlmeNqzJzl8j9B6vPnqjrUbxjS5OgLihhhQMg/s72-c/CertainRailgunPointing1a.jpg" class="rcitemimg" alt="" title="Flipcard Gallery"/></a><br/><a href="https://aarg.blogspot.com/p/flip-card-pho.html" title="Flipcard Gallery" class="rcitemtxt">Flipcard Gallery</a></div>';
+}
 
 }//i==(maxPosts-1)
 }//for i<maxPosts
@@ -1265,32 +1261,9 @@ break;
 }}
 }//function
 
-function deferSortLinks() {
-
-var outer=document.getElementById("random-links");
-if (String(outer)!='null') {
-var links=outer.children;
-
-var isDone=0;
-do {
-isDone=0;
-for (var c=0;c<links.length-1;c++){
-var astr=new String(links[c].innerText);
-var bstr=new String(links[c+1].innerText);
-if (cleanStr(bstr)<cleanStr(astr)) {
-links[c+1].parentNode.insertBefore(links[c+1], links[c]);
-isDone=1;
-}
-}//for
-}
-while (isDone==1)
-}//if outer is null
-}//function
-
 function deferredActions() {
 deferImages();
 deferSortThumbs();
-deferSortLinks();
 }//function
 
 var d=document;
