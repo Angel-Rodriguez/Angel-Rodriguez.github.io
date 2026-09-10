@@ -162,7 +162,7 @@ padding-top: 10px;
 }
 .article-content blockquote.pullquote.small,.post-body blockquote.pullquote.small {
 font-size: 90%;
-line-height: 1em;
+line-height: 1.1em;
 }
 .article-content blockquote.pullquote.small:after,.post-body blockquote.pullquote.small:after {
 clear:both;
