@@ -622,7 +622,7 @@ divs[i].innerHTML=nIH;
 
 //Display Footer Links
 var blog=d.getElementById("Blog1");
-var nIH=new String('<div class="blog-pager container" id="blog-pager"><a class="blog-pager-newer-link flat-button ripple" href="'+thisring[links[prevIndex].id].w+'" id="Blog1_blog-pager-newer-link" title="Previous Page ('+thisring[links[prevIndex].id].n+')">&lt;--&nbsp;&nbsp;Previous</a><span data-title="'+ringname+' Ring With '+thisring.length.toString()+' Pages"><a href="'+ringlink+'"><b>&bigcirc;</b></a></span><a class="blog-pager-older-link flat-button ripple" href="'+thisring[links[nextIndex].id].w+'" id="Blog1_blog-pager-older-link" title="Next Page ('+thisring[links[nextIndex].id].n+')">Next&nbsp;&nbsp;&nbsp;--&gt;</a></div>');
+var nIH=new String('<div class="blog-pager container" id="blog-pager"><a class="blog-pager-newer-link flat-button ripple" href="'+thisring[links[prevIndex].id].w+'" id="Blog1_blog-pager-newer-link" title="Previous Page ('+thisring[links[prevIndex].id].n+')">&larr;&nbsp;Previous</a><span data-title="'+ringname+' Ring With '+thisring.length.toString()+' Pages"><a href="'+ringlink+'"><b>&bigcirc;</b></a></span><a class="blog-pager-older-link flat-button ripple" href="'+thisring[links[nextIndex].id].w+'" id="Blog1_blog-pager-older-link" title="Next Page ('+thisring[links[nextIndex].id].n+')">Next&nbsp;&rarr;</a></div>');
 blog.innerHTML+=nIH;
 
 }//if post
@@ -972,66 +972,6 @@ Do_MusicRatings();
 
 /* -------------------------------------------- */
 /* -------------------------------------------- */
-/* --              Feed Links               --- */
-/* -------------------------------------------- */
-/* -------------------------------------------- */
-
-
-
-
-
-function Do_FeedLinks() {
-var d=document;
-var cntFeed=1;
-var divs=d.getElementsByTagName('div');
-for (var i=0;i<divs.length;i++){
-if ((divs[i].className=="widget Feed") && (String(divs[i].getAttribute("id")).indexOf("Feed")>-1)) {
-var h3 = divs[i].getElementsByTagName('h3');
-if (h3.length == 0) {
-var newh3=document.createElement("h3");
-newh3.setAttribute("class","title");
-switch(cntFeed){
-case 1:
-newh3.innerText="J1 Studios News";
-break;
-case 2:
-newh3.innerText="Let's Anime";
-break;
-case 3:
-newh3.innerText="AnimeNation News";
-break;
-}
-var feedContent = divs[i].children;
-divs[i].insertBefore(newh3, feedContent[0]);
-h3 = divs[i].getElementsByTagName('h3');
-}
-var h3text = h3[0].textContent;
-if (h3text.indexOf("J1") > -1) {
-h3[0].innerHTML = "<a href='http://www.j1studios.com/' target='_blank'><img src='"+noImageStr+"' data-src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWMKj6bBFbG5rHcwlBNsxRZDTFB9LTxbOWXUL4LJEWcw5hGeeOQiw_OmvyKaAnD_DTu-PRV93xsSHNoBVP0Ubx18upIlttb6g79pjWaodCRTXrJyM5S4kNg_sqmdDoBlNuqqfipw/s200/J1Banner200x50.jpg' width='200' height='50' alt='"+h3text+"' title='"+h3text+"'  style='padding-left:30px;padding-right:30px;background-color:black;position:relative;left:-7px;'/><br/>"+h3text+"</a>"
-h3[0].setAttribute("style", "line-height:16px;");
-} 
-if (h3text.indexOf("Let") > -1) {
-h3text=h3text.replace("'", "&apos;");
-h3[0].innerHTML = "<a href='http://letsanime.blogspot.com/' target='_blank'><img src='"+noImageStr+"' data-src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjRRAR218UkRPtEMJoWcGJmAdUICRY-zn_qQ5_FnYIQU6-EjthIO2lL7R8gdPOzmh4cOryWzF_RpZj3hmksUBgTglEDgP78LcoL8epa7iu7jOm_S7C9IlTBruDinNft-jod4-xcA/s1600/LetsAnimeBanner200x50.jpg' alt='"+h3text+"' title='"+h3text+"' width='200' height='50'  style='padding-left:30px;padding-right:30px;background-color:black;position:relative;left:-7px;'/><br/>"+h3text+"</a>";
-h3[0].setAttribute("style", "line-height:16px;");
-}
-if (h3text.indexOf("AnimeNation") > -1) {
-h3[0].innerHTML = "<a href='https://www.animenation.net/' target='_blank'><img src='"+noImageStr+"' data-src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9apQxPb4WFDdV4pJmSlFPT5n2dGzXlwlyNohIB3611NKaKy4RH5IYq4q0SGQ4vyVCJEVIcSeVyLQSeCDgR-4k6iBOLoyzMJnholIFERoXfCpswWURypGcmqugyXg7hbNCQpJVAA/s200/AnimeNationBanner2.jpg' alt='"+h3text+"' title='"+h3text+"' width='200' height='50' style='padding-left:30px;padding-right:30px;background-color:black;position:relative;left:-7px;'/><br/>"+h3text+"</a>";
-h3[0].setAttribute("style", "line-height:16px;");
-}
-cntFeed+=1;
-}//if widget feed
-}//for i
-}//function
-
-Do_FeedLinks();
-
-
-
-
-
-/* -------------------------------------------- */
-/* -------------------------------------------- */
 /* --          Background Squares           --- */
 /* -------------------------------------------- */
 /* -------------------------------------------- */
@@ -1249,15 +1189,15 @@ ic.setAttribute("class", "ribbon_tabs green");
 } else {
 ic.setAttribute("class", "ribbon_tabs");
 }
-var sp = document.createElement("span");
+var sp = document.createElement("span");//empty span
 var tx = document.createTextNode(ribbonName);
-sp.appendChild(tx);
-ra.appendChild(sp)
-ic.appendChild(ra);
-dv.appendChild(ic);
-bx.appendChild(dv);
-oc.appendChild(bx);
-articles[i].insertBefore(oc, articles[i].childNodes[0]);
+sp.appendChild(tx);//Add ribbon text to span
+ra.appendChild(sp);//Add span to link = a href
+ic.appendChild(ra);//Add link to wrapper = ribbon_tabs
+dv.appendChild(ic);//Add wrapper to inner wrapper = ribbon_inner_container
+bx.appendChild(dv);//Add inner wrapper to outer wrapper = ribbon_outer_container
+oc.appendChild(bx);//Add everything to ribbon container = one ribbon
+articles[i].insertBefore(oc, articles[i].childNodes[0]);//Add ribbon to snippet (article)
 }}
 }//function
 
