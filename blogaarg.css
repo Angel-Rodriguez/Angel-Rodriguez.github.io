@@ -1,19 +1,23 @@
+/* Insert newpage icon after every link where the target is blank. */
 a[target$="_blank"]:after {
 content: url("data:image/gif;base64,R0lGODlhCAAIAJEAAACZ/////////wAAACH5BAUUAAIALAAAAAAIAAgAAAIPhC8Cmat6kFvmvSgbsxgUADs=");
 position:relative;
 left:3px;
 margin-right:3px;
 }
+/* No icon for music blocks. */
 blockquote.music > a[target$="_blank"]:after {
 position:absolute;
 content: "";
 }
+/* Don't show GIF files. The rating icons are GIFs and are not supposed to be seen. */
 .article-content a>img[src$=".gif"],.post-body a>img[src$=".gif"] {
 display:none;
 }
 .article-content,.post-body {
 padding-bottom:0px;
 }
+/* Quote icon used for background image in block quotes. */
 .article-content blockquote,.post-body blockquote {
 font-style:italic;
 font-size:90%;
@@ -49,6 +53,7 @@ box-shadow:1px 1px 5px rgba(0,0,0,.1);
 float:left;
 padding:5px;
 }
+/* Special CODE border for code block quotes. */
 .article-content blockquote.code-box,.post-body blockquote.code-box {
 border-right:10px solid #09c;
 border-bottom:1px solid #09c;
@@ -81,6 +86,7 @@ max-height:14em;
 width:90%;
 margin:0px;
 }
+/* Special SPOILER border for spoiler block quotes. */
 .article-content blockquote.spoilers,.post-body blockquote.spoilers {
 border-right:10px solid red;
 border-bottom:1px solid red;
@@ -95,6 +101,7 @@ margin-bottom:20px;
 -webkit-border-radius:10px;
 border-radius:10px;
 }
+/* Special TIP border for tip block quotes. */
 .article-content blockquote.tip,.post-body blockquote.tip {
 border-right:10px solid #ccc;
 border-bottom:1px solid #ccc;
@@ -110,6 +117,7 @@ margin-bottom:20px;
 border-radius:10px;
 background-color:#eee;
 }
+/* Special NOTE border for note block quotes. */
 .article-content blockquote.note,.post-body blockquote.note {
 border-right:10px solid red;
 border-bottom:1px solid red;
@@ -308,6 +316,7 @@ top:3px;
 .blogger a {
 display:none;
 }
+/* Background image for blog name. */
 .blog-name {
 background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDABIODhMPExwSEhwlGxcbJSUeHBweJTAnJycnJzAyLS8vLy8tMjI1NjY2NTI6Ojw8OjpCQkJCQkJCQkJCQkJCQkL/2wBDARMVFRkYGR4VFR4mHBscJjAmISEmMDYwLykvMDY7NTIyMjI1Ozg6NjY2Ojg9PTs7PT1CQkJCQkJCQkJCQkJCQkL/wAARCACCAZADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMAAQQFBgf/xAAwEAACAgEDAwMEAQUAAgMAAAAAAQIDEQQSIQUxQRMiUTJhcYFCFCORobEVMzRD8f/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EAC0RAQACAgEDAgQFBQEAAAAAAAABAgMRIRIxQQRREyJhcRQjMlKBM0JDU6Fi/9oADAMBAAIRAxEAPwDwxZRYBCyiAFlEIAQheChgUVllPll/SsFIAL7EcuMAkGFouREHTDfLL7AcRvgSXpR3fyfYVOcrHmQ+/wBz2oqOnmmtyxkJ7LmPm6Kurof7FG5/k49tjuscvk7W1TxT47yNFWmrj9MUZYo72nvLo9TbtijtVwqtDdb2WPyTU6T+nwm+X4O9qL4aeOZfpHnbrndNzkbOJK4ZfPZdwrJeo/t4QGcrHg006dz9z7EWvELiszxCqNNuBt7/AIN82qocdzny98sLuc9bTady6enpjRcYux4Q7ijOV44OlRokq+PqMV0HfZz/ABCMkWnXiCmmvuvT5rzfL6scHV0kH6cIeZ8s50/dKNfydzS187/j2xMbzv8Al2+lrrctkHGvM5fTBHm9Vqv6qU7H57fg2db1uyK00H95nnt7NaY+GefJzqHQcswUSvV2rsYVNjVd8j6HPtq3+pLCAsjGa5FrnsNjzhfBOtBhsrdbwwOx1LK/W9vnyznThteDal9/dnNRKPGSnEKmXh8jJLIt8lplYI6UWKZpEsphcW1yh8ZKYqp8jnWnyuCiU0Aw+V3KYAtgsYwGIAwUEUAUQhQBCyiAEIQgBYUV5KSI2ARvJa45BIAX3DXH5KjELshnoshQbhtWWBIlue1GyuvjbHuLprws+X2N9NePyNp+mPrJtFEIdlz8lXc2/aKyPjwZ64O6f55f4FaONe4xTq3VPg7TxeN77yHSc8Ygv2x8Kx/pFRCLW3MzPl5rW07U5WPdI56Ot1fiW05SIkoMijsafirnx2Zgpr3TimdXVtwqwkow7fc48ttzFfd24q6jbmW2722zV02j/wC2S4fkwKO6ah8nooaf0YLZx/wnLbpr0x5XXmdz4Ls3w90f2jJqZQ+tcZNVs8L3rC+UcfUyc3hPgzxV3J2P0MXbbuf6PQXTjoqM/wAvC+5i6PplCv1Z9lyZ9be9RZv/AIr6Ua97b8R2dG+ikQ51sXZNyny2V/TIZKe6XALymXuXHPuVLS/AmdUodzRvcBv/ALOSuqY79k6hig8GmCz2FWQ2P7DaXhjtzzAg+Mv4L9sz6mvjcatmXn/QU4qSwYxbUnMOOaow4z4ETjiWBtSXdv8AR0W7bZis4WEY5GywzTQURcEO5sRiXc2xNoZKYDGMWxkBgMNgMQCCEUIwkIQAohCAELRRYBbZRRYBA0sFLgZFAa4wz3Ktf8UHKW1fcqqre90hlMrop/nIrPqz/wCDbZZ/tw/Y+inYvuMbHVXjl9zXCIMIj4orSZkF3treO74HaOj04c9yRrc5r4RuriPRb1wuus0uGEXXAbbwi4hMy8b1h/3sGCuGWbesf/IYGmjL+JzZZ1ttjjbVoalOXBt1+YQUXxn/AAD06t7nwM6sp4isHmzbeWIelEaq5ehrU9QsrhfB6CUNv0Sx9mcrpWnnOUpVvDXhnWlp7mvfjBOefm79irHDBqZpQb7S+PDOXRD1rVD5Z0OpV7YrBj0MnCxyjzLtE2xfo2fe0OtrLlFf01X0r6zmT57GqdOItPl92zE01BhE77Hedss7drxEX6sgSYOyKw5uT6rN3Eh7WFxwYVwzqQrc4pmOTjlUESUdu0SsmyFe18IRbHEmTE+Bo6OMcvkNRZdUfamGnKXCWEZzJudqK9swae5p1UfcKrq5Non5WcjnDJimjpSjgwWLLCks7M3k2R7GR9zZHsdUMZRi2MYtjIDAYbAYjCUWUIBIQgBRCFgEKLLAIkF2KLSACSD7clIiW/8AABcI73ufY0N4WF3BihsUUS6atv5NUULijRCJSRwiaYQFwRoiUkyETRXEVEfAtDRBBW/SVAZJZRRPE9Yji8mhW7g2depw1M52klz3wcXqI7urBLvdPjhtDOoQ9RxiI6c5bjp2RhmMp+Dx7cZXq+IYOlab3zg45OpCrY8Ylj7g17Vb3/waJ4jL3Tb+xnmtzrymXE67xCIjo2l5c338HV6loleoyfaPgVQvSkpeC65PyeivfydY3uWfUVPczBOuWMPseh1VG+O5HLcOcNcjx5OEvP20uuWBWD0VmnjPuhL6dHK+52x6iPI6Yceql2M7ddbSWFwHVp1FpYNqpwsw7f6MMubqEREMVNXLwZL6N0pPB2XD047scmScNzSM6352ei669laTFtZ7ZN84PwIefKCLb5Y7cvURe4CqDybLll8A1145OuvZFp4JtZgtyb7cHOvLxs57M/k2rsZILMjadcMJAxbGMBgRbAYbBYGAosoQCQhACiyiwCFlBAFoJAoMAvuNSAQxDA4jooXEdEaTYo0RExHxKI6JoiIiPiUR0DRARE0QKQfAelwJgPiXCXC67Ruok/jk8tp5pTWT3mtp9Stx+TwNlbpucH4Zz567bYZ09DorXv4XB2roe3J5nS2zlxF4PQaO/wBaG3mUl3Z4OesxPV7PWrbcQL+5OtW5X3SN231YqdLX7MCj6U9rW5T+lfc6Ojqa4s/UUTak5NWr5F+I2C2rfDa37vk5bqnu2Pv8nobIIx6ijdHK7+DmraaWmlhiyf8AS6Jrbsl38P5FWUJf5/yI9zfu4l/wdXqH/Nfsua65q0mnmCLaOfYvuxNlXfPjlHVi6pdnwLlt2ZYReUfwxKpP/pqrxs5Ac64J/blGednqLC+nwVzY4pM/QjVXuTxD6V2QWmg5r1JfokKna8L6fJrfHEV2NZnUdMFkmIjpqRKOSp1bUaYoTdysHfiwRFOq3eezgted6cuVfOez+QXlL3GvDX1Ga5lXiK1ivmT6ty59/Y59jNuosRz5vk0xwVpMoWXk1C6Y4Q1nSxLYtjGLYgWwWEwWBgKLZQgEhCAFFlFgECKLQASCQKDQAaGRFoahkZEdEVEbEoj4j4meI+IyaIj4meI+IyPiPgIgPgWlpgaIGeBogXCEtjlHjOv6PZZ6y89z27RzeoaNXwcX5FaNwcTqXjNLf6Z6bptmOXwpHlba3p7HB+Dq6HVttbuTxvU49xL1MN98S9XbpvUj7X25TDqs5+6+psXpNTvjtG3Up+5dvKPLx5Zx26Z7Nf8Azb+GyLVqyKmsGGnWe7PhHQrshfyjovSubWuLs5pNO/Zlt08bPHJklTZHvyjsbPADr3Sz4Mvg5K/WF1y6+ziqSbxgNJc/k6rowVCvjOCOd66ZafFhyHU5Y2r/APBkOnY+t/dHV2Y8Fyr4/wCF1rmvxWukWz/w5c4KPtjwVXLcue5snX5f7Rh1M1S+O7OquCcWr319vLn6uviEn7e/+TNLkzLWSk8THbtq+x3Rlr/dx9GVqTH3Lu4Rzrnh58Gq6bfBy9Rd4MJn4l+pVY1DJfZuZnrjukFY8s06erasnbSGVpMjHBUhjFs0QWxbGMWxGBgMJgsDAUWyhAJCEAKLKLALLRRYAaCQKCQAxDELQxFEZEdEVEbEZHRHRERHxKS0RHRM8TREZHwNEDPE0QKS0wNMDLA0QLScLlHIwoaXmet9M9RepD6kebqvlW8fB9Dur3I8p1npDT9apflHPlx75dFL6aen6x+H+T0On1Csj9j59pr5VP8AB6XRdRViXh/B4XqfT+YehS/VHPd0LtPJT3V9ma6Ht5XjwVp7c8/6Naoqt5i+THHS2T5YnVoa2yajVu3uZG/nbIKuyL7MyTrshuff4ExnhwT4wbxmz4v6kb17sfh1t+n/AI7GECoxXCMdl6xLD8Co39nnusGv47H/AK2UYbe7pYiLlJRWDDG3EVz5CtszDK7or8baeMeMfA95J1NrfK8HJ1c90XF9+8TtOpOOfk5tsIV/TyznvTJX8zLzMrravavhgrq9Nb5d2BO7wNducqXc52p1Kj+fJVYm0nPvKW3JHIut3F33Z7C6aZWv7HoY8emNrD09O97n2OhjBcK1BYLZ1dmBUhTGsUwBbFsYxbJMDBYTBYGAosoQCQhACiyiwCwgQkAEgkCgkAMQxC0MQwYhsRSGRKI+I6JniPiNLREfEzxHxKS0RHwM8B8CktUDTAywNMCknkKIUlMCbalJcjiAbyfVOiZbsp7/AAcFSnRLnho+jTgmcjXdIr1Pjn5ML4os2pfTjabq0vLO7o+o8qWc/LPK6vpV+leUt0TPVqp09jzcvpf28S7K5txqeX0avqEZr5DcqbsbkeD0/VZVwafc2V9ZeFyYTHqK8b6o+p/J3jh62WmplF4fcGGjqSjE4lXVIyWPgZX1SvDln6e5n13j/FVfP7pdn+zVH/Qc7obODzv/AJWqcZNfpGRdcUU1Pl+Cur1E8V+X7QmYr3mdu5Zqvbszyc6/VRS+GcO/qsppY8GOzVSsLr6a083kuqsdm6zqSbfBzbbnY8hV6ey7sjp6fpkYcz5Z30wxHaGNsjn0aOVvMux04UqCwjV6aiBI6IjTGZJYqQ2QqQApimMYtiMti2MYtiMDBDYDEYQQmCIBIQgBRZCAFhIhAAkEiEAGINEIMGIaiEGRsR0SEKI+I+JCDSfAfAhC0NMDRAhCknohCFEshCAFMBkIAY9R2PKdWjHPCRCGV+zarkoJEIcjY6GfkKOcS5IQzWWhciELggs0aRJy5RCGlUS79OMdhxCHQxLkIkQggTITIhCVFMWyEEZbFshBGFgMhCTCwSEABIQgB//Z);
 background-repeat: repeat-x;
@@ -324,6 +333,7 @@ border-radius: 200px;
 max-height: 120px;
 margin-bottom:4px;
 }
+/* Centered and stick (see below) ensure that the blog name is centered in all modes. */
 .centered {
 margin-top:0px;
 padding-top:0px;
@@ -431,21 +441,13 @@ border-right: 9px solid transparent;
 border-bottom: 9px solid transparent;
 border-top: 18px solid DarkCyan;
 }
-.sidebar-container [data-title]:hover::before {
-left:0px;
-}
-.sidebar-container [data-title]:hover::after {
-left:50px;
-}
-.widget.Feed li a {
-font-size:10pt;
-}
 .flat-button.ripple {
 color: white;
 }
 body.flipcard {
 background: white;
 }
+/* Applicable only to the flipcard gallery. vvv */
 .flipcard #header, .flipcard #controls, .flipcard #header-container, .flipcard .overview-controls-left, .flipcard .article-footer, .flipcard .comments {
 display:none !important;
 height:0px;
@@ -471,6 +473,7 @@ display:none !important;
 .flipcard span.blog-admin {
 display:none !important;
 }
+/* Applicable only to the flipcard gallery. ^^^ */
 .title.gray {
 background: none;
 }
@@ -535,6 +538,7 @@ color: black !important;
 h3 a:hover {
 color: #2196f3 !important;
 }
+/* Fancy line. */
 hr {
 background: black;
 background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 75%);
@@ -644,35 +648,6 @@ padding: 0px;
 }
 .PageList h3 {
 display:none;
-}
-.person {
-position: relative;
-height: 150px;
-width: 130px;
-}
-.person:after {
-content: '';
-display: block;
-position: absolute;
-box-sizing: border-box;
-top: 75px;
-height: 50px;
-width: 130px;
-border: 0px solid Cyan;
-border-radius: 45px 45px 0 0;
-border-width: 15px 15px 0px 15px;
-}
-.person:before {
-content: '';
-display: block;
-box-sizing: border-box;
-position: absolute;
-top: 0;
-left: 25px;
-height: 80px;
-width: 80px;
-border-radius: 80px;
-border: 15px solid Cyan;
 }
 .photo-container {
 float:left;
@@ -824,7 +799,7 @@ position:relative;
 top:8px
 }
 .PopularPosts {
-max-width:720px;
+max-width:90%;
 margin-left:auto;
 margin-right:auto;
 }
@@ -865,6 +840,7 @@ margin-bottom:10px;
 .post-header .byline {
 margin-top:0;
 }
+/* Pill shapes for labels at the bottom of post pages. */
 .post-labels .byline-label {
 text-transform:uppercase;
 font-size:10pt;
@@ -949,6 +925,7 @@ border-right:1px solid lightblue;
 .blog-posts article .aargratingimage img {
 padding:5px;
 }
+/* Decorative rating balls. */
 .rating-container {
 float:left;
 width:228px;
@@ -1105,6 +1082,7 @@ text-decoration:none;
 position:relative;
 left:-5px;
 }
+/* Block the abuse link. */
 .widget.ReportAbuse {
 display:none;
 }
@@ -1112,6 +1090,7 @@ display:none;
 position:relative;
 left:-50px
 }
+/* Decorative ribbons. */
 .ribbon_container {
 position:absolute;
 left:0px;
@@ -1204,83 +1183,6 @@ border-top: 1px solid lightgray;
 .show-more.pill-button {
 font-weight: bold;
 }
-.sidebar_bottom {
-padding-top:6px !important;
-width:105% !important;
-padding-bottom:50px;
-}
-.sidebar-container {
-position:fixed!important;
-left:-10px;
-margin-top:0px;
-padding-right:10px;
-overflow:hidden !important;
-overflow-y:scroll !important;
-overflow-x:hidden;
-font-weight:bold;
-}
-.sidebar-container h3 {
-color: gray;
-text-transform: uppercase;
-}
-.sidebar-container .widget.Feed h3 a {
-color: #2196f3 !important;
-}
-.sidebar-container .LinkList li, .widget.Feed li {
-list-style-type: circle;
-margin-left: 25px;
-font-weight: bold;
-}
-.sidebar-container #ArchiveList, .sidebar-container .list-label-widget-content li {
-font-weight: bold;
-}
-.sidebar-container .posts.hierarchy li {
-list-style-type: circle;
-margin-left: 5px;
-}
-.sidebar-container h3, .sidebar-container .LinkList li a, .sidebar-container .list-label-widget-content li a, .sidebar-container .hierarchy li a {
-font-size: 10pt;
-}
-.sidebar-container .list-label-widget-content li {
-color: #757575 !important;
-display:block;
-line-height:.6 !important;
-}
-.sidebar-container .list-label-widget-content .label-name {
-width:105%;
-}
-.sidebar-container .list-label-widget-content .label-count {
-float:right;
-}
-.sidebar-container .navigation {
-background-image:none;
-animation-name: bg-photo-overlay-colorshift;
-animation-duration: 30s;
-animation-iteration-count: infinite;
-background-color: black;
-background-repeat: no-repeat;
-background-position: 0px 0px;
-padding:0px;
-margin-bottom: 10px;
-}
-.sidebar-container .navigation > button {
-width:50px !important;
-}
-.sidebar-container .navigation > button:after {
-content: 'Close';
-Color: white;
-text-transform: uppercase;
-position:relative;
-top:-8px;
-left:40px;
-text-shadow:1px 1px black;
-font-size:8pt;
-}
-.sidebar-container .svg-icon-24:nth-child(1) {
-fill: white;
--webkit-filter: drop-shadow(2px 2px rgba(0,0,0,0.75));
-filter: drop-shadow(2px 2px rgba(0,0,0,0.75));
-}
 aside > div.navigation > button > svg {
 width: 0; 
 height: 0; 
@@ -1292,23 +1194,6 @@ border-right: 20px solid white;
 filter: drop-shadow(2px 2px rgba(0,0,0,0.75));
 position:relative;
 left:-15px;
-}
-.sidebar-container .svg-icon-24.chevron-down, .sidebar-container .svg-icon-24.chevron-up {
-fill: black;
-}
-.sidebar-container .widget {
-padding-top:0px;
-padding-bottom:6px;
-}
-.sidebar-container .widget+.widget {
-border: none;
-margin-top:7px;
-}
-.sidebar-container span.post-count {
-color: #2196f3;
-}
-.sidebar_top h3 {
-display:none;
 }
 .snippet-fade {
 height:1.5em !important;
@@ -1365,6 +1250,7 @@ position:absolute;
 right:10px;
 top:30%;
 }
+/* Don't show subscription. */
 .subscribe-section-container, .subscribe-empty-placeholder {
 display:none;
 }
@@ -1381,6 +1267,7 @@ padding: 8px 4px !important;
 .tabs li.selected {
 display:none;
 }
+/* Collapse and Expand. */
 .wrap-collabsible {
 margin-bottom: 1.2rem 0;
 clear:both;
@@ -1437,6 +1324,7 @@ padding-top:20px;
 overflow:visible;
 display:block;
 }
+/* Wallpaper icons. */
 .wallpaper {
 border: 3px solid white;
 float: left;
@@ -1510,6 +1398,7 @@ padding-top:5px;
 width:250px;
 height:250px;
 }
+/* Small image buttons. */
 .aargouterwrap {
 background-color:#eee;
 border:1px solid #ddd;
@@ -1650,6 +1539,7 @@ font-size: 80%;
 .blog-posts article .jump-link {
 font-size: 80%;
 }
+/* Date stamps. */
 .blog-posts article .aargdate, .sidebar-container .aargdate {
 font-size:7.5pt !important;
 color: black;
@@ -1795,10 +1685,23 @@ padding-left:50px;
 .aargcontainer span {
 float:right;
 }
+
+
+
+
+
+/* Global rules. */
 .Text .widget-content {
 font-size:85%;
 }
 .dontshow, #HTML2 h3, #HTML3 h3, #HTML6 h3, #HTML7 h3, #HTML8 h3, #HTML9 h3 {
+display:none !important;
+}
+.overflow-button-container {
+display:none !important;
+visibility:hidden !important;
+}
+.overflow-button-container > .overflow-button {
 display:none !important;
 }
 #HTML1, #HTML1 h3, #HTML1 div {
@@ -1827,6 +1730,8 @@ color: rgba(0,0,0,0) !important;
 
 
 
+
+/* Print-friendly view. */
 @media only print {
 .centered-top-container, .blog-pager, #navigation_container, .navprevnext-container, .bg-photo-overlay, .bg-photo-container, .fullball-small, .emptyball-small, #footer, .sidebar-container, .post-share-buttons, .jump-link, .post-bottom, .comments, iframe, .music, .related-links, .ribbon_container, .aargratingimage, .rating-container-small {
 display:none !important;
@@ -1889,10 +1794,12 @@ text-shadow: none;
 .item-view .Header h1, .sticky .Header h1 {
 font-size: 14pt;
 }}
+
 @media only screen and (max-width: 350px) {
 div.jump-link.flat-button.ripple {
 display:none !important;
 }}
+
 @media only screen and (max-width: 400px) {
 .blog-posts article .aargdate, .sidebar-container .aargdate {
 font-size:6pt !important;
@@ -1910,6 +1817,7 @@ max-width: calc(100% - 40px);
 .tabs {
 padding-top:6px;
 }}
+
 @media only screen and (max-width: 500px) {
 .article-content blockquote,.post-body blockquote {
 background-image:none;
@@ -1917,6 +1825,7 @@ background-image:none;
 .article-content blockquote img,.post-body blockquote img {
 margin-right:100% !important;
 }}
+
 @media only screen and (max-width: 550px) {
 div.jump-link.flat-button.ripple {
 bottom:13px !important;
@@ -1924,6 +1833,7 @@ bottom:13px !important;
 .blog-posts article .aargratingimage {
 bottom:-17px;
 }}
+
 @media only screen and (max-width: 650px) {
 .aargContent {
 width:100%;
@@ -1932,6 +1842,7 @@ font-size:80%;
 .aargHeader {
 display:none;
 }}
+
 @media only screen and (max-width: 700px) {
 .article-content blockquote.pullquote,.post-body blockquote.pullquote {
 font-size: 120%;
@@ -1950,6 +1861,9 @@ float:none;
 .blog-name h1 {
 padding-left:0px !important;
 }}
+
+
+/* Header animation */
 @media only screen and (min-width: 750px) {
 @keyframes background_shift {
 from {background-position: 4000px 0px;}
@@ -2105,11 +2019,13 @@ display:none;
 .page-descr-container {
 display:none;
 }}
+
 @media only screen and (max-width: 900px) {
 div.jump-link.flat-button.ripple {
 display:block;
 bottom:18px;
 }}
+
 @media only screen and (min-width: 1300px) {
 .blog-posts article .aargdate, .sidebar-container .aargdate {
 font-size:110% !important;
@@ -2143,6 +2059,7 @@ margin-right:30px;
 .blog-posts article .aargdate, .sidebar-container .aargdate {
 font-size:10pt !important;
 }}
+
 @media only screen and (min-width: 1700px) {
 .blog-posts article .aargdate, .sidebar-container .aargdate {
 font-size:10pt !important;
@@ -2150,6 +2067,13 @@ font-size:10pt !important;
 
 
 
+
+
+
+
+
+
+/* Grid framework for snippet container (hfeed.container) on home page. */
 .blog-posts.hfeed.container {
 display: grid;
 grid-column-gap: 20px;
@@ -2160,6 +2084,8 @@ align-items: start;
 position:relative;
 }
 
+
+/* Medium sized screen 650 to 1100 - 2 columns. */
 @media only screen and (min-width: 650px) {
 @media only screen and (max-width: 1100px) {
 .blog-posts.hfeed.container article:nth-child(2n) {
@@ -2179,6 +2105,7 @@ display:block !important;
 
 
 
+/* Larger sized screen 1101 to 1800 - 3 columns. */
 @media only screen and (min-width: 1101px) {
 @media only screen and (max-width: 1800px) {
 .blog-posts.hfeed.container article:nth-child(3n+2) {
@@ -2221,6 +2148,8 @@ padding-right:20px;
 }
 }}
 
+
+/* Larger sized screen 1801 to 2400 - 4 columns. */
 @media only screen and (min-width: 1801px) {
 @media only screen and (max-width: 2400px) {
 .blog-posts.hfeed.container article:nth-child(4n+2) {
@@ -2266,6 +2195,8 @@ padding-right:20px;
 }
 }}
 
+
+/* Larger sized screen over 2400 - 5 columns. */
 @media only screen and (min-width: 2401px) {
 .blog-posts.hfeed.container article:nth-child(5n+2) {
 grid-column-start: 1;
@@ -2311,5 +2242,4 @@ font-size:80%;
 .blog-posts.hfeed.container article + article {
 padding-left:10px;
 padding-right:20px;
-}
-}
+}}
