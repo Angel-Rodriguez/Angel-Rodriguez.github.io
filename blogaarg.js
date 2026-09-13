@@ -336,9 +336,10 @@ for (var r=0;r<popularpostsDivs.length;r++){
 if (popularpostsDivs[r].className=='aargcontainer'){
 aargcontentDiv=popularpostsDivs[r];
 }}//for/if-r-popularpostsDivs
-
+var strAargDiv = new String(aargcontentDiv.innerHTML);
+if (strAargDiv.indexOf(randompoststhumb)==-1) {
 aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="'+randompostsurl+'"><img src="'+noImageStr+'" data-src="'+randompoststhumb+'" class="rcitemimg" alt="" title="'+randompoststitle+'"/></a><br/><a href="'+randompostsurl+'" title="'+randompoststitle+'" class="rcitemtxt">'+randompoststitle+'</a></div>';
-}
+}}
 
 //Do this ome time only.
 if (i==(maxPosts-1)){
