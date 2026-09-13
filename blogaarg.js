@@ -1078,6 +1078,12 @@ var pl2Str=new String(pl2);
 if (pl2Str!="undefined") {
 pl2.style.visibility="visible";
 }
+//Unhide popular posts hidden in stylesheet
+var pp2=d.getElementById("PopularPosts2");
+var pp2Str=new String(pp2);
+if (pp2Str!="undefined") {
+pp2.style.visibility="visible";
+}
 }
 
 
