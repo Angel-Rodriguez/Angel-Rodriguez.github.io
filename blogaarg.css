@@ -1,3 +1,10 @@
+body {
+background: #f2f5f6;
+background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%);
+background: -webkit-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+background: linear-gradient(to bottom, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
+}
 /* Insert newpage icon after every link where the target is blank. */
 a[target$="_blank"]:after {
 content: url("data:image/gif;base64,R0lGODlhCAAIAJEAAACZ/////////wAAACH5BAUUAAIALAAAAAAIAAgAAAIPhC8Cmat6kFvmvSgbsxgUADs=");
@@ -386,13 +393,6 @@ background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=1 );
 color:white !important;
 }
-not body.flipcard {
-background: #f2f5f6;
-background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%);
-background: -webkit-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
-background: linear-gradient(to bottom, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
-}
 .centered-top-container.sticky .widget.Header h1 {
 color:#fff;
 padding-left:30px
@@ -444,36 +444,6 @@ border-top: 18px solid DarkCyan;
 .flat-button.ripple {
 color: white;
 }
-body.flipcard {
-background: white;
-}
-/* Applicable only to the flipcard gallery. vvv */
-.flipcard #header, .flipcard #controls, .flipcard #header-container, .flipcard .overview-controls-left, .flipcard .article-footer, .flipcard .comments {
-display:none !important;
-height:0px;
-}
-.flipcard #main {
-margin:0px;
-}
-.flipcard h1 {
-background: none;
-}
-.flipcard .article .article-content img:not(.deferred) {
-padding: 0px !important;
-}
-.flipcard .article .article-content ing {
-margin: 0px !important;
-}
-.flipcard .article .article-content {
-padding-bottom: 40px !important;
-}
-.flipcard .card .back .overlay .bubble {
-display:none !important;
-}
-.flipcard span.blog-admin {
-display:none !important;
-}
-/* Applicable only to the flipcard gallery. ^^^ */
 .title.gray {
 background: none;
 }
@@ -1863,6 +1833,11 @@ padding-left:0px !important;
 }}
 
 
+
+
+
+
+/* Disable for small screens */
 /* Header animation */
 @media only screen and (min-width: 750px) {
 @keyframes background_shift {
@@ -2012,6 +1987,12 @@ animation-name: bg_square_background_shift;
 .bg-square .bg-onesquare:nth-child(9n-7) {
 animation-name: bg_square_background_shift3;
 }}
+
+
+
+
+
+
 @media only screen and (max-width: 750px) {
 .navprevnext-container {
 display:none;
