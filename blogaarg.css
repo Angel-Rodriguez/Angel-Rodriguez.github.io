@@ -17,6 +17,11 @@ blockquote.music > a[target$="_blank"]:after {
 position:absolute;
 content: "";
 }
+/* No icon for rcitembox. */
+.rcitembox > a[target$="_blank"]:after {
+position:absolute;
+content: "";
+}
 /* Don't show GIF files. The rating icons are GIFs and are not supposed to be seen. */
 .article-content a>img[src$=".gif"],.post-body a>img[src$=".gif"] {
 display:none;
@@ -304,6 +309,10 @@ background-position: 0px 0px;
 }
 .bg-photo-overlay {
 background-color: SteelBlue;
+-webkit-box-shadow: 0 0 5px black;
+-moz-box-shadow: 0 0 5px black;
+box-shadow: 0 0 5px black;
+border-bottom:1px solid black;
 opacity:0.95;
 filter:alpha(opacity=95);
 }
@@ -615,7 +624,13 @@ overflow:hidden;
 }
 .page_body .centered {
 padding: 0px;
+max-width:80%;
 }
+@media only screen and (max-width: 750px) {
+.page_body .centered {
+max-width:100%;
+}}
+
 .PageList h3 {
 display:none;
 }
@@ -1654,6 +1669,21 @@ padding-left:50px;
 }
 .aargcontainer span {
 float:right;
+}
+/* Make room for the footer */
+#PopularPosts2 {
+margin-bottom:250px;
+}
+footer {
+position:absolute;
+width:100% !important;
+left:0px;
+bottom:0px;
+background-color: #e8e8e8;
+-webkit-box-shadow: 0 0 5px black;
+-moz-box-shadow: 0 0 5px black;
+box-shadow: 0 0 5px black;
+border-top:1px solid black;
 }
 
 

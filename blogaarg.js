@@ -343,6 +343,8 @@ aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="'+randompostsurl+'"><
 
 //Do this ome time only.
 if (i==(maxPosts-1)){
+//Insert extra items here
+
 //Don't show home button on home page.
 if (cu.length<35) {
 var tabs=d.getElementsByClassName("tabs");
