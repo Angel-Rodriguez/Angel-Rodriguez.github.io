@@ -51,8 +51,8 @@ for (var j=0;j<articles.length;j++){
 var pageURL=new String(articles[j].getElementsByTagName('a')[0].getAttribute('href'));
 var imgURL=new String(articles[j].getElementsByTagName('img')[0].getAttribute('src').replace('s320','s72-c').replace('w72-h72-p-k-no-nu','s72-c').replace('s1600','s72-c').replace('s200','s72-c').replace('s300','s72-c'));
 var pageTitle=new String(articles[j].getElementsByTagName('a')[0].textContent.replace('...',''));
-if (aargcontent.indexOf(pageURL.replace('http:', 'https:')) == -1) {
-aargcontent+='<div class="rcitembox"><a href="'+pageURL.replace('http:', 'https:')+'"><img src="'+noImageStr+'" data-src="'+imgURL.replace('http:', 'https:')+'" class="rcitemimg" alt="" title="'+pageTitle+'"/></a><br/><a href="'+pageURL.replace('http:', 'https:')+'" title="'+pageTitle+'" class="rcitemtxt">'+pageTitle+'</a></div>';
+if (aargcontent.indexOf(pageURL) == -1) {
+aargcontent+='<div class="rcitembox"><a href="'+pageURL+'"><img src="'+noImageStr+'" data-src="'+imgURL+'" class="rcitemimg" alt="" title="'+pageTitle+'"/></a><br/><a href="'+pageURL+'" title="'+pageTitle+'" class="rcitemtxt">'+pageTitle+'</a></div>';
 } //filter duplicate posts
 }}}
 var pps = new String(popularposts);
