@@ -1210,5 +1210,6 @@ Do_BackgroundSquares();
 Do_ToggleSection();
 Do_CopyNavigation();
 Do_SnippetRibbon();
+Do_AnimeGraph();
 Do_LastBits();
 }}
