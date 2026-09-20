@@ -849,8 +849,6 @@ border-radius: 10px;
 box-shadow: 0px 1px 4px -2px black;
 text-shadow: -1px -1px black;
 }
-.post-labels a:before {
-}
 .post-labels a:after {
 content: '';
 position: absolute;
@@ -1706,7 +1704,7 @@ display:none !important;
 }
 #HTML1, #HTML1 h3, #HTML1 div {
 text-align:center;
-max-width:200px;
+max-width:300px;
 margin-left:auto;
 margin-right:auto;
 line-height:0.9em;
@@ -2254,3 +2252,151 @@ font-size:80%;
 padding-left:10px;
 padding-right:20px;
 }}
+
+
+
+
+
+
+/* Graphing rules */
+.graph-container {
+min-width:210px;
+}
+.donut-container {
+width:100px;
+height:200px;
+overflow:hidden;
+float:right;
+}
+.donut-chart-block {
+overflow: hidden;
+float: right;
+}
+.donut-chart {
+position: relative;
+width: 200px;
+height: 200px;
+border-radius: 100px;
+}
+.center-cutout {
+background:white;
+position: absolute;
+top:0;left:0;bottom:0;right:0;
+width: 70%;
+height: 70%;
+margin: auto;
+border-radius: 100px;
+}
+.cutout {
+border-radius: 100px;
+clip: rect(0px, 200px, 200px, 100px);
+height: 100%;
+position: absolute;
+width: 100%;
+}
+.segment-size {
+border-radius: 100px;
+clip: rect(0px, 100px, 200px, 0px);
+height: 100%;
+position: absolute;
+width: 100%;
+}
+.donut-chart .colornr {
+background-color: DarkSlateGray;
+}
+.donut-chart .colorworst {
+background-color: OrangeRed;
+}
+.donut-chart .color1of5 {
+background-color: LightSalmon;
+}
+.donut-chart .color2of5 {
+background-color: Wheat;
+}
+.donut-chart .color3of5 {
+background-color: Gold;
+}
+.donut-chart .color4of5 {
+background-color: Plum;
+}
+.donut-chart .colorbest {
+background-color: MediumSlateBlue;
+}
+.graph-data {
+float:left;
+width:80px;
+margin-right:10px;
+height:200px;
+}
+.graph-data tbody {
+font-size: 75%;
+font-weight:bold;
+}
+.graph-data .colornr td:first-child {
+border-left: 10px solid DarkSlateGray;
+border-bottom: 1px solid black;
+}
+.graph-data .colornr td:nth-child(2) {
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+}
+.graph-data .colorworst td:first-child {
+border-left: 10px solid OrangeRed;
+border-bottom: 1px solid black;
+}
+.graph-data .colorworst td:nth-child(2) {
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+}
+.graph-data .color1of5 td:first-child {
+border-left: 10px solid LightSalmon;
+border-bottom: 1px solid black;
+}
+.graph-data .color1of5 td:nth-child(2) {
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+}
+.graph-data .color2of5 td:first-child {
+border-left: 10px solid Wheat;
+border-bottom: 1px solid black;
+}
+.graph-data .color2of5 td:nth-child(2) {
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+}
+.graph-data .color3of5 td:first-child {
+border-left: 10px solid Gold;
+border-bottom: 1px solid black;
+}
+.graph-data .color3of5 td:nth-child(2) {
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+}
+.graph-data .color4of5 td:first-child {
+border-left: 10px solid Plum;
+border-bottom: 1px solid black;
+}
+.graph-data .color4of5 td:nth-child(2) {
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+}
+.graph-data .colorbest td:first-child {
+border-left: 10px solid MediumSlateBlue;
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+}
+.graph-data .colorbest td:nth-child(2) {
+border-right: 1px solid black;
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+}
+.graph-data td {
+text-align:center;
+}
+.graph-data td:nth-child(1) {
+width:45px;
+border-right:1px solid black;
+}
+.graph-data td:nth-child(2) {
+width:35px;
+}

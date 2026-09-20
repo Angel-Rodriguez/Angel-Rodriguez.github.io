@@ -893,6 +893,102 @@ destinationDiv.innerHTML=targetDiv.innerHTML;
 
 /* -------------------------------------------- */
 /* -------------------------------------------- */
+/* --              Anime Graph              --- */
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+
+
+function Do_AnimeGraph() {
+var d=document;
+var g=d.getElementsByClassName("graph-container");
+var animetotals=[0,0,0,0,0,0];//5,4,3,2,1,0
+if (g.length>0){
+for (const oneanime of an) {
+switch (oneanime.r){
+case "5":
+animetotals[0]+=1;
+break;
+case "4":
+animetotals[1]+=1;
+break;
+case "3":
+animetotals[2]+=1;
+break;
+case "2":
+animetotals[3]+=1;
+break;
+case "1":
+animetotals[4]+=1;
+break;
+case "0":
+animetotals[5]+=1;
+break;
+default:
+//animetotals[6]+=1;
+}//Switch rating
+}//For each anime
+var currentIndex = -1;
+var maxPie=180;
+var totalarc=0;
+var totalprintpercent=0;
+var allanimesize=animetotals[0]+animetotals[1]+animetotals[2]+animetotals[3]+animetotals[4]+animetotals[5];
+for (const onetotal of animetotals) {
+currentIndex+=1;
+var percentOfTotal = onetotal/allanimesize;
+var currentarc=Math.round(maxPie * percentOfTotal);
+var currentprintpercent=Math.round(percentOfTotal*100);
+if ((currentIndex==5) && (totalarc+currentarc<maxPie)) {
+currentarc+=(maxPie-(totalarc+currentarc));
+}
+if ((currentIndex==6) && (currentprintpercent+totalprintpercent<100)) {
+currentprintpercent+=(100-(totalprintpercent+currentprintpercent));
+}
+var outerPie = d.getElementById("segment" + (currentIndex+1).toString());
+var innerPie = outerPie.getElementsByTagName("div")[0];
+outerPie.style.transform="rotate(" + totalarc.toString() + "deg)";
+innerPie.style.transform="rotate(" + currentarc.toString() + "deg)";
+if (currentarc==0) {
+outerPie.style.display="none";
+innerPie.style.display="none";
+} else {
+outerPie.style.display="block";
+innerPie.style.display="block";
+}
+totalarc+=currentarc;
+totalprintpercent+=currentprintpercent;
+var celValue;
+switch (currentIndex) {
+case 1:
+celValue=d.getElementById("td4");
+break;
+case 2:
+celValue=d.getElementById("td3");
+break;
+case 3:
+celValue=d.getElementById("td2");
+break;
+case 4:
+celValue=d.getElementById("td1");
+break;
+case 5:
+celValue=d.getElementById("tdworst");
+break;
+default:
+celValue=d.getElementById("tdbest");
+}//switch
+var printPercent = currentprintpercent.toString()+"%";
+celValue.textContent=printPercent;
+celValue.setAttribute("title", onetotal.toString() + " of " + allanimesize.toString());
+}//for animetotals
+var printTotal = "Breakdown Of " + allanimesize.toString() + " Anime";;
+var dText=d.getElementById("donutText");
+dText.textContent=printTotal;
+}//Graphs Exist
+}
+
+
+/* -------------------------------------------- */
+/* -------------------------------------------- */
 /* --             Snippet Ribbon            --- */
 /* -------------------------------------------- */
 /* -------------------------------------------- */
