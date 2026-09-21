@@ -937,7 +937,7 @@ currentIndex+=1;
 var percentOfTotal = onetotal/allanimesize;
 var currentarc=Math.round(maxPie * percentOfTotal);
 var currentprintpercent=Math.round(percentOfTotal*100);
-if ((currentIndex==5) && (totalarc+currentarc<maxPie)) {
+if ((currentIndex==6) && (totalarc+currentarc<maxPie)) {
 currentarc+=(maxPie-(totalarc+currentarc));
 }
 if ((currentIndex==6) && (currentprintpercent+totalprintpercent<100)) {
