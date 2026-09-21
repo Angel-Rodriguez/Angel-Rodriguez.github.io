@@ -28,6 +28,7 @@ display:none;
 }
 .article-content,.post-body {
 padding-bottom:0px;
+color:black;
 }
 /* Quote icon used for background image in block quotes. */
 .article-content blockquote,.post-body blockquote {
