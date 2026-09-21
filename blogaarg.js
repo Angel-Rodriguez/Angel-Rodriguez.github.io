@@ -901,7 +901,7 @@ destinationDiv.innerHTML=targetDiv.innerHTML;
 function Do_AnimeGraph() {
 var d=document;
 var g=d.getElementsByClassName("graph-container");
-var animetotals=[0,0,0,0,0,0];//5,4,3,2,1,0
+var animetotals=[0,0,0,0,0,0,0];//5,4,3,2,1,0,NR
 if (g.length>0){
 for (const oneanime of an) {
 switch (oneanime.r){
@@ -924,14 +924,14 @@ case "0":
 animetotals[5]+=1;
 break;
 default:
-//animetotals[6]+=1;
+animetotals[6]+=1;
 }//Switch rating
 }//For each anime
 var currentIndex = -1;
 var maxPie=180;
 var totalarc=0;
 var totalprintpercent=0;
-var allanimesize=animetotals[0]+animetotals[1]+animetotals[2]+animetotals[3]+animetotals[4]+animetotals[5];
+var allanimesize=animetotals[0]+animetotals[1]+animetotals[2]+animetotals[3]+animetotals[4]+animetotals[5]+animetotals[6];
 for (const onetotal of animetotals) {
 currentIndex+=1;
 var percentOfTotal = onetotal/allanimesize;
@@ -972,6 +972,9 @@ celValue=d.getElementById("td1");
 break;
 case 5:
 celValue=d.getElementById("tdworst");
+break;
+case 6:
+celValue=d.getElementById("tdnr");
 break;
 default:
 celValue=d.getElementById("tdbest");
