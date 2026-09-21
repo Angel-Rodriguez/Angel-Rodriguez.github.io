@@ -1007,9 +1007,9 @@ var oneTr = document.createElement("TR");
 var oneTd = document.createElement("TD");
 var twoTd = document.createElement("TD");
 if (oneanime.r=="") {//No rating
-    oneTd.setAttribute("sorttable_customkey", new String("-1"));
     if (oneanime.w=="") {//No link
     oneTd.createTextNode("NR");//No link;No rating
+    oneTd.setAttribute("sorttable_customkey", new String("-1"));
     oneTr.appendChild(oneTd);
     twoTd.createTextNode(oneanime.n.toString());
     oneTr.appendChild(twoTd);
@@ -1018,6 +1018,7 @@ if (oneanime.r=="") {//No rating
     aLink.href = oneanime.w.toString();
     aLink.textContent = "NR";//Link;No rating
     oneTd.appendChild(aLink);
+    oneTd.setAttribute("sorttable_customkey", new String("-1"));
     oneTr.appendChild(oneTd);
     aLink = document.createElement("A");
     aLink.href = oneanime.w.toString();
