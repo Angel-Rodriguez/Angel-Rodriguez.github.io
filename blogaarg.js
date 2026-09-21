@@ -1016,13 +1016,13 @@ if (oneanime.r=="") {//No rating
     oneTr.appendChild(twoTd);
     } else {
     var aLink = document.createElement("A");
-    aLink.setAttribute("href", oneanime.w.toString());
-    aLink.text("NR");//Link;No rating
+    aLink.href = oneanime.w.toString();
+    aLink.textContent = "NR";//Link;No rating
     oneTd.appendChild(aLink);
     oneTr.appendChild(oneTd);
     aLink = document.createElement("A");
-    aLink.setAttribute("href", oneanime.w.toString());
-    aLink.text(oneanime.n.toString());
+    aLink.href = oneanime.w.toString();
+    aLink.textContent = oneanime.n.toString();
     twoTd.appendChild(aLink);
     oneTr.appendChild(twoTd);
     }
@@ -1034,13 +1034,13 @@ if (oneanime.r=="") {//No rating
     oneTr.appendChild(twoTd);
     } else {
     var aLink = document.createElement("A");
-    aLink.setAttribute("href", oneanime.w.toString());
-    aLink.text(oneanime.r.toString());//Link
+    aLink.href = oneanime.w.toString();
+    aLink.textContent=oneanime.r.toString();//Link
     oneTd.appendChild(aLink);
     oneTr.appendChild(oneTd);
     aLink = document.createElement("A");
-    aLink.setAttribute("href", oneanime.w.toString());
-    aLink.text(oneanime.n.toString());
+    aLink.href = oneanime.w.toString();
+    aLink.textContent=oneanime.n.toString();
     twoTd.appendChild(aLink);
     oneTr.appendChild(twoTd);
     }
