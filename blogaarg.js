@@ -992,6 +992,68 @@ dText.textContent=printTotal;
 
 /* -------------------------------------------- */
 /* -------------------------------------------- */
+/* --              Anime Table              --- */
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+
+
+function Do_AnimeTable() {
+var d=document;
+var aTable=d.getElementById("AnimeList");
+if (String(aTable)!='null') { //Anime list exists
+var tBody=aTable.getElementsByTagName('tbody');
+for (const oneanime of an) {
+var oneTr = document.createElement("TR");
+var oneTd = document.createElement("TD");
+var twoTd = document.createElement("TD");
+twoTd.setAttribute("n", "");//New flag
+if (oneanime.r=="") {//No rating
+    oneTd.setAttribute("sorttable_customkey", "-1");
+    if (oneanime.w=="") {//No link
+    oneTd.createTextNode("NR");//No link;No rating
+    oneTr.appendChild(oneTd);
+    twoTd.createTextNode(oneanime.n.toString());
+    oneTr.appendChild(twoTd);
+    } else {
+    var aLink = document.createElement("A");
+    aLink.setAttribute("href", oneanime.w.toString());
+    aLink.createTextNode("NR");//Link;No rating
+    oneTd.appendChild(aLink);
+    oneTr.appendChild(oneTd);
+    aLink = document.createElement("A");
+    aLink.setAttribute("href", oneanime.w.toString());
+    aLink.createTextNode(oneanime.n.toString());
+    twoTd.appendChild(aLink);
+    oneTr.appendChild(twoTd);
+    }
+} else {//Rating
+    if (oneanime.w=="") {//No link
+    oneTd.createTextNode(oneanime.r.toString());//No link
+    oneTr.appendChild(oneTd);
+    twoTd.createTextNode(oneanime.n.toString());
+    oneTr.appendChild(twoTd);
+    } else {
+    var aLink = document.createElement("A");
+    aLink.setAttribute("href", oneanime.w.toString());
+    aLink.createTextNode(oneanime.r.toString());//Link
+    oneTd.appendChild(aLink);
+    oneTr.appendChild(oneTd);
+    aLink = document.createElement("A");
+    aLink.setAttribute("href", oneanime.w.toString());
+    aLink.createTextNode(oneanime.n.toString());
+    twoTd.appendChild(aLink);
+    oneTr.appendChild(twoTd);
+    }
+}//if oneanime.r==""
+if (tBody.length>0) {
+tBody[0].appendChild(oneTr);
+}}//For each anime
+}//Has Anime Table
+}//function
+
+
+/* -------------------------------------------- */
+/* -------------------------------------------- */
 /* --             Snippet Ribbon            --- */
 /* -------------------------------------------- */
 /* -------------------------------------------- */
@@ -1214,5 +1276,6 @@ Do_ToggleSection();
 Do_CopyNavigation();
 Do_SnippetRibbon();
 Do_AnimeGraph();
+Do_AnimeTable();
 Do_LastBits();
 }}
