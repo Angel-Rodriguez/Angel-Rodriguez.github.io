@@ -1006,9 +1006,8 @@ for (const oneanime of an) {
 var oneTr = document.createElement("TR");
 var oneTd = document.createElement("TD");
 var twoTd = document.createElement("TD");
-twoTd.setAttribute("n", "");//New flag
 if (oneanime.r=="") {//No rating
-    oneTd.setAttribute("sorttable_customkey", "-1");
+    oneTd.setAttribute("sorttable_customkey", new String("-1"));
     if (oneanime.w=="") {//No link
     oneTd.createTextNode("NR");//No link;No rating
     oneTr.appendChild(oneTd);
