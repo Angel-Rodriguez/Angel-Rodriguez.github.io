@@ -644,7 +644,7 @@ float:left;
 width:250px
 }
 @media only screen and (max-width: 500px) {
-.photo-container-small {
+blockquote .photo-container-small {
 Width:350px;
 }}
 .music-container.photo-container {
