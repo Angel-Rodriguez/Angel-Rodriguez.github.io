@@ -643,6 +643,10 @@ width:350px
 float:left;
 width:250px
 }
+@media only screen and (max-width: 500px) {
+.photo-container-small {
+Width:350px;
+}}
 .music-container.photo-container {
 width:400px;
 float:right !important;
@@ -702,8 +706,8 @@ display:none!important;
 #blog-pager .pages, #navigation_container .pages {
 border:none;
 }
-.nobr {
-white-space:nowrap;
+.dontwrap {
+white-space: nowrap;
 }
 .widget.PageList {
 margin-bottom:5px;
