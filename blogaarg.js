@@ -338,7 +338,7 @@ var pps = new String(popularposts);
 if (pps!="undefined") {
 popularpostsDivs = popularposts.getElementsByTagName('div');
 popularpostsHeader = popularposts.getElementsByTagName('h3');
-popularpostsHeader[0].innerHTML="Popular and Random Posts";
+popularpostsHeader[0].innerHTML="You Might Also Like";
 for (var r=0;r<popularpostsDivs.length;r++){
 if (popularpostsDivs[r].className=='aargcontainer'){
 aargcontentDiv=popularpostsDivs[r];
@@ -469,10 +469,9 @@ labelCount+=1;
 else {
 switch (ringname) {
 case "Anime":
-links.push({id: -1, content: '<div class="rcitembox"><a href="https://aarg.blogspot.com/p/anime-list.html"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwM71VZtxDjumk44inTaJcOMcWhuYUMuWpDISZSgWP_LCO89rsnGSo4Jaj1uQ85mZu3A1FnjT49tNmW60jp9V9btZPFgK-Tniez6QlcKsEWjBJrghRHrcreJE1K2bAAF0imPkXwg/s72-c/MovieList_Page_1.jpg" class="rcitemimg" alt="Anime List"/></a><br/><a href="https://aarg.blogspot.com/p/anime-list.html" class="rcitemtxt">Anime List</a></div>'});
+//links.push({id: -1, content: '<div class="rcitembox"><a href="https://aarg.blogspot.com/p/anime-list.html"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwM71VZtxDjumk44inTaJcOMcWhuYUMuWpDISZSgWP_LCO89rsnGSo4Jaj1uQ85mZu3A1FnjT49tNmW60jp9V9btZPFgK-Tniez6QlcKsEWjBJrghRHrcreJE1K2bAAF0imPkXwg/s72-c/MovieList_Page_1.jpg" class="rcitemimg" alt="Anime List"/></a><br/><a href="https://aarg.blogspot.com/p/anime-list.html" class="rcitemtxt">Anime List</a></div>'});
 break;
 case "Mainstream":
-links.push({id: -1, content: '<div class="rcitembox"><a href="https://aarg.blogspot.com/p/anime-list.html"><img src="'+noImageStr+'" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiREv_-v-zmDgwZtsnnfBRxsBJ5fw8NOqBuHu_o2cUoueU4p59MW1omZEMlYAmJj9Nl4E6txmLXyvKf5eMo6cZe2W1kLg00emFsz_ZGbpCrs4OLTe9Nv7yHbnvi1hnV2V1rapA3pQ/s72-c/MovieList_Page_2.jpg" class="rcitemimg" alt="Anime List"/></a><br/><a href="https://aarg.blogspot.com/p/anime-list.html" class="rcitemtxt">Anime List</a></div>'});
 break;
 case "Other":
 break;
@@ -1238,12 +1237,12 @@ deferImages();
 deferSortThumbs();
 }//function
 
+
 function Do_LastBits() {
 var d=document;
 var body=d.getElementsByTagName('body');
 var onloadbody=new String(body[0].getAttribute("onload"));
 if (onloadbody=="null") {body[0].setAttribute('onload', 'deferredActions();');} else {body[0].setAttribute('onload', onloadbody + ';deferredActions();');}
-
 //Unhide tabs hidden in stylesheet
 var pl2=d.getElementById("PageList2");
 var pl2Str=new String(pl2);
@@ -1255,8 +1254,7 @@ var pp2=d.getElementById("PopularPosts2");
 var pp2Str=new String(pp2);
 if (pp2Str!="undefined") {
 pp2.style.visibility="visible";
-}
-}
+}}
 
 
 /* -------------------------------------------- */
