@@ -495,7 +495,7 @@ blog.innerHTML+=nIH;
 }//if post
 if(divs[i].className.indexOf('post-body entry-content')>-1){
 var nIH=new String(divs[i].innerHTML);
-nIH+='<div class="related-links"><div class="clear"></div><br/><h3 style="padding-top:0px;margin-top:0px;">Related Posts</h3>';
+nIH+='<div class="related-links"><div class="clear"></div><br/><h3 style="padding-top:0px;margin-top:0px;margin-bottom:5px;">Related Posts</h3>';
 if (links.length>2){
 for (var n=2;n<links.length;n++){
 nIH+=links[n].content;

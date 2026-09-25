@@ -770,7 +770,11 @@ border:2px solid #ccc;
 border-radius: 20px;
 -webkit-box-shadow:1px 1px 5px rgba(0,0,0,.1);
 box-shadow:1px 1px 5px rgba(0,0,0,.1);
+max-width:80%;
+margin-left:auto;
+margin-right:auto;
 }
+
 .PopularPosts .jump-link {
 display:none;
 }
@@ -788,14 +792,11 @@ color:black;
 position:relative;
 top:8px
 }
-.PopularPosts {
-max-width:90%;
-margin-left:auto;
-margin-right:auto;
-}
 .PopularPosts .aargcontainer {
 margin-top:0px !important;
 margin-bottom:10px !important;
+margin-left:auto;
+margin-right:auto;
 }
 .post-body {
 margin-top:10px;
