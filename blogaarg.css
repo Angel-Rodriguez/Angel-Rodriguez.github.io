@@ -355,7 +355,7 @@ padding-top:10px;
 border-radius: 200px;
 max-height: 120px;
 margin-bottom:4px;
-animation-timing-function: ease-in-out;
+animation-timing-function: cubic-bezier(.96,-0.3,0,1.26);
 animation-direction: alternate;
 animation-name: blognameshift;
 animation-iteration-count: infinite;
