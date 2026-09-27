@@ -33,6 +33,7 @@ color:rgb(38, 38, 38);
 blockquote {
 font-style:italic;
 font-size:90%;
+min-width:100px;
 }
 /* Quote icon used for background image in block quotes. */
 .article-content blockquote,.post-body blockquote {
@@ -302,7 +303,7 @@ left:-20px;
 .article-content td br,.post-body td br {
 display:none
 }
-.back-button, .hamburger-menu {
+.back-button {
 -webkit-transform: scale(1.25);
 transform: scale(1.25);
 }
@@ -423,11 +424,11 @@ height:0;
 margin:0;
 padding:0
 }
-.blog-pager [data-title], .sidebar-container [data-title] {
+.blog-pager [data-title] {
 position: relative;
 font-size:80%;
 }
-.blog-pager [data-title]:hover::before, .sidebar-container [data-title]:hover::before {
+.blog-pager [data-title]:hover::before {
 z-index:30;
 content: attr(data-title);
 position: absolute;
@@ -442,7 +443,7 @@ white-space: nowrap;
 width:auto;
 box-shadow: 0 3px 7px -5px black;
 }
-.blog-pager [data-title]:hover::after, .sidebar-container [data-title]:hover::after {
+.blog-pager [data-title]:hover::after {
 z-index:30;
 content: '';
 position: absolute;
@@ -461,19 +462,13 @@ color: white;
 .title.gray {
 background: none;
 }
-@keyframes hamburgercolorshift {
+@keyframes iconcolorshift {
 50%  {background-color: rgba(0,0,0,0.2);}
 100% {background-color: rgba(255,255,255,0.1);}
 }
-.hamburger-menu {
-background-color: rgba(255,255,255,0.1);
-animation-name: hamburgercolorshift;
-animation-duration: 14s;
-animation-iteration-count: infinite;
-}
 .search-expand {
 background-color: rgba(255,255,255,0.2);
-animation-name: hamburgercolorshift;
+animation-name: iconcolorshift;
 animation-duration: 14s;
 animation-iteration-count: infinite;
 -webkit-border-radius:25x;
@@ -1456,7 +1451,7 @@ font-size: 80%;
 font-size: 80%;
 }
 /* Date stamps. */
-.blog-posts article .aargdate, .sidebar-container .aargdate {
+.blog-posts article .aargdate {
 font-size:7.5pt !important;
 color: black;
 background-color:#e8e8e8;
@@ -1474,14 +1469,11 @@ overflow: hidden;
 width:3em;
 height:4.3em;
 }
-.sidebar-container .aargdate {
-left:10px !important;
-}
-.blog-posts article .aargdate a, .blog-posts article .onedate a, .sidebar-container .aargdate a {
+.blog-posts article .aargdate a, .blog-posts article .onedate a {
 color: black;
 text-decoration:none;
 }
-.blog-posts article .aargdate *, .sidebar-container .aargdate * {
+.blog-posts article .aargdate * {
 display: block;
 width:100%;
 text-align:center;
@@ -1516,7 +1508,7 @@ padding-top:20px;
 max-width: calc(100% - 220px);
 margin-bottom:10px;
 }
-.blog-posts article .aargmonth, .sidebar-container .aargmonth {
+.blog-posts article .aargmonth {
 background: rgb(109,179,242);
 background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%);
 background: -webkit-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%);
@@ -1534,7 +1526,7 @@ text-shadow:1px 1px white;
 padding-bottom:1px;
 padding-top:1px;
 }
-.blog-posts article .aargmonth:after, .sidebar-container .aargmonth:after {
+.blog-posts article .aargmonth:after {
 content: '';
 position: absolute;
 top: 10%;
@@ -1549,14 +1541,14 @@ text-decoration:none;
 border-radius: 12px;
 -webkit-border-radius:12px;
 }
-.blog-posts article .aargday, .sidebar-container .aargday {
+.blog-posts article .aargday {
 position:absolute;
 top: .8em;
 left:0px;
 font-size: 170%;
 text-shadow:1px 1px lightgray;
 }
-.blog-posts article .aargyear, .sidebar-container .aargyear {
+.blog-posts article .aargyear {
 background: rgb(109,179,242);
 background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%);
 background: -webkit-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%);
@@ -1571,7 +1563,7 @@ line-height: 1.5;
 color:black;
 text-shadow:1px 1px white;
 }
-.blog-posts article .aargyear:after, .sidebar-container .aargyear:after {
+.blog-posts article .aargyear:after {
 content: '';
 position: absolute;
 bottom: 10%;
@@ -1732,7 +1724,7 @@ display:none !important;
 }}
 
 @media only screen and (max-width: 400px) {
-.blog-posts article .aargdate, .sidebar-container .aargdate {
+.blog-posts article .aargdate {
 font-size:6pt !important;
 }
 .article-content blockquote.pullquote,.post-body blockquote.pullquote {
@@ -1966,7 +1958,7 @@ bottom:18px;
 }}
 
 @media only screen and (min-width: 1300px) {
-.blog-posts article .aargdate, .sidebar-container .aargdate {
+.blog-posts article .aargdate {
 font-size:110% !important;
 }
 .article-content blockquote.tip,.post-body blockquote.tip, 
@@ -1995,12 +1987,12 @@ height:42px;
 margin-left:30px;
 margin-right:30px;
 }
-.blog-posts article .aargdate, .sidebar-container .aargdate {
+.blog-posts article .aargdate {
 font-size:10pt !important;
 }}
 
 @media only screen and (min-width: 1700px) {
-.blog-posts article .aargdate, .sidebar-container .aargdate {
+.blog-posts article .aargdate {
 font-size:10pt !important;
 }}
 
