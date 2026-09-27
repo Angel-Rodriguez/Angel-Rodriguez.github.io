@@ -336,6 +336,9 @@ top:3px;
 .blogger a {
 display:none;
 }
+.widget.Header H1 {
+font-size:20pt;
+}
 /* Background image for blog name. */
 @keyframes blognameshift {
 from {background-position: -150px 0px;}
@@ -356,7 +359,7 @@ padding-top:10px;
 border-radius: 200px;
 max-height: 120px;
 margin-bottom:4px;
-animation-timing-function: cubic-bezier(.96,-0.3,0,1.26);
+animation-timing-function: cubic-bezier(.96,-0.3,0,1.26); /* ease-in-out cubic-bezier(.15,1.03,.75,.13); */
 animation-direction: alternate;
 animation-name: blognameshift;
 animation-iteration-count: infinite;
@@ -1780,6 +1783,9 @@ float:none;
 }
 .blog-name h1 {
 padding-left:0px !important;
+}
+.widget.Header H1 {
+font-size:16pt;
 }}
 
 

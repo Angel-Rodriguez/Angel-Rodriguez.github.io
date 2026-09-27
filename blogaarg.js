@@ -56,7 +56,7 @@ popularposts.className="widget PopularPosts";
 articles=popularposts.getElementsByTagName('article');
 for (var j=0;j<articles.length;j++){
 var pageURL=new String(articles[j].getElementsByTagName('a')[0].getAttribute('href'));
-var imgURL=new String(articles[j].getElementsByTagName('img')[0].getAttribute('src').replace('s320','s72-c').replace('w72-h72-p-k-no-nu','s72-c').replace('s1600','s72-c').replace('s200','s72-c').replace('s300','s72-c'));
+var imgURL=new String(articles[j].getElementsByTagName('img')[0].getAttribute('src').replace('s320','s72-c').replace('w72-h72-p-k-no-nu','s72-c').replace('s1600','s72-c').replace('s200','s72-c').replace('s300','s72-c').replace('s995','s72-c').replace('s2068','s72-c'));
 var pageTitle=new String(articles[j].getElementsByTagName('a')[0].textContent.replace('...',''));
 if (aargcontent.indexOf(pageURL) == -1) {
 aargcontent+='<div class="rcitembox"><a href="'+pageURL+'"><img src="'+noImageStr+'" data-src="'+imgURL+'" class="rcitemimg" alt="" title="'+pageTitle+'"/></a><br/><a href="'+pageURL+'" title="'+pageTitle+'" class="rcitemtxt">'+pageTitle+'</a></div>';
@@ -153,7 +153,7 @@ articleDivs[dc].style.position='relative';
 articleDivs[dc].style.top='-20px';
 articleDivs[dc].style.zIndex='5';
 var imgs = articleDivs[dc].getElementsByTagName('img');
-var imgsrc = new String(imgs[0].getAttribute('src').replace('s320','s320-c').replace('s1600','s320-c').replace('s200','s320-c'));
+var imgsrc = new String(imgs[0].getAttribute('src').replace('s320','s320-c').replace('s1600','s320-c').replace('s200','s320-c').replace('s995','s72-c').replace('s2068','s72-c'));
 imgs[0].setAttribute('data-src', imgsrc.toString());
 imgs[0].setAttribute('src', noImageStr);
 }//if container post-body entry-content
