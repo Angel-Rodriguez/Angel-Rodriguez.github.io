@@ -1862,6 +1862,7 @@ opacity:0.5;
 filter:alpha(opacity=50);
 }
 .bg-square .bg-onesquare:nth-child(odd) {
+clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 -webkit-transform: translateX(-40px);
 -moz-transform: translateX(-40px);
 -ms-transform: translateX(-40px);

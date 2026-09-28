@@ -976,20 +976,24 @@ var maxPie=180;
 var totalarc=0;
 var totalprintpercent=0;
 var allanimesize=an.length;
+var zCount=0;
 
 for (let i = 1; i <= 7; i++) {
+zCount=i-1;
 trOne=d.createElement("tr");
-trOne.className=gClasses[i-1];
-trOne.title=gLongDescr[i-1];
+trOne.className=gClasses[zCount];
 if (isAnimeList==1){
-trOne.setAttribute("onclick","javascript:filterTable('"+sTypes[i-1]+"');");
+trOne.setAttribute("onclick","javascript:filterTable('"+sTypes[zCount]+"');");
+trOne.title=gLongDescr[zCount]+" (Click to Filter Anime List)";
 if (i==7){trOne.id="trnr";}
+} else {
+trOne.title=gLongDescr[zCount];
 }
 tdOne=d.createElement("td");
-tdOne.textContent=gText[i-1];
+tdOne.textContent=gText[zCount];
 tdTwo=d.createElement("td");
-tdTwo.id=tIDs[i-1];
-tdTwo.title=animetotals[i-1].toString()+" of "+anSize;
+tdTwo.id=tIDs[zCount];
+tdTwo.title=animetotals[zCount].toString()+" of "+anSize;
 trOne.appendChild(tdOne);
 trOne.appendChild(tdTwo);
 tBody.appendChild(trOne);
@@ -998,12 +1002,12 @@ divCutOut=d.createElement("div");
 divCutOut.className="cutout";
 divCutOut.id="segment"+i.toString();
 divSegment=d.createElement("div");
-divSegment.className="segment-size "+gClasses[i-1];
+divSegment.className="segment-size "+gClasses[zCount];
 divCutOut.appendChild(divSegment);
 divDonutChart.appendChild(divCutOut);
 
 //Calulate arcs
-var percentOfTotal = animetotals[i-1]/allanimesize;
+var percentOfTotal = animetotals[zCount]/allanimesize;
 var currentarc=Math.round(maxPie * percentOfTotal);
 if (currentarc<0) {currentarc=0;}
 var currentprintpercent=Math.round(percentOfTotal*100);
@@ -1038,7 +1042,7 @@ aGraph.style.width="200px";
 if (isAnimeList==0) {
 aGraph.style.cursor="pointer";
 aGraph.setAttribute("onclick","location.href='https://aarg.blogspot.com/p/anime-list.html';");
-aGraph.title="Click To Open Anime List";
+aGraph.title="Click to Open Anime List";
 }
 }//Anime graph exists
 }//function
