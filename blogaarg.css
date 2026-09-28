@@ -1623,6 +1623,18 @@ font-size:85%;
 .dontshow, #HTML2 h3, #HTML3 h3, #HTML6 h3, #HTML7 h3, #HTML8 h3, #HTML9 h3 {
 display:none !important;
 }
+.hamburger-menu {
+display:none !important;
+}
+.sidebar-container {
+display:none !important;
+width: 0px !important;
+max-width: 0px !important;
+}
+.sidebar-container .sidebar_bottom {
+width: 0px !important;
+max-width: 0px !important;
+}
 .overflow-button-container {
 display:none !important;
 visibility:hidden !important;

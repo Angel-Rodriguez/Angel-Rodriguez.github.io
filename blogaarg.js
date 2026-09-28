@@ -904,11 +904,17 @@ destinationDiv.innerHTML=targetDiv.innerHTML;
 /* -------------------------------------------- */
 
 
-function Do_AnimeGraph() {
+function Do_AnimeGraph2() {
 var d=document;
-var g=d.getElementsByClassName("graph-container");
+var aGraph=d.getElementById("AnimeGraph");
+
+if (String(aGraph)!='null') { //Anime graph exists
 var animetotals=[0,0,0,0,0,0,0];//5,4,3,2,1,0,NR
-if (g.length>0){
+var anSize=new String(an.length);
+var isAnimeList=0;
+var aTable=d.getElementById("AnimeList");
+if (String(aTable)!='null') {isAnimeList=1;} //Anime list also exists
+//Count anime by rating
 for (const oneanime of an) {
 switch (oneanime.r){
 case "5":
@@ -933,67 +939,106 @@ default:
 animetotals[6]+=1;
 }//Switch rating
 }//For each anime
-var currentIndex = -1;
+
+var oneH3=d.createElement("h3");
+oneH3.textContent= "Breakdown Of "+anSize+" Anime";
+oneH3.id="donutText";
+aGraph.appendChild(oneH3);
+var divGraphCon=d.createElement("div");
+divGraphCon.className="graph-container";
+var tGraphData = d.createElement("table");
+tGraphData.className="graph-data";
+tGraphData.setAttribute("cellspacing", "0");
+if (isAnimeList==1) {tGraphData.style.cursor="pointer";}
+var tBody=d.createElement("tbody");
+var trOne;
+var tdOne;
+var tdTwo;
+
+const gClasses=["colorbest","color4of5","color3of5","color2of5","color1of5","colorworst","colornr"];
+const tIDs=["tdbest","td4","td3","td2","td1","tdworst","tdnr"];
+const sTypes=["Best","4","3","2","1","Worst","Unrated"];
+const gLongDescr=["Only The Best","Only Anime Rated 4 Out Of 5","Only Anime Rated 2 Out Of 5","Only Anime Rated 2 Out Of 5","Only Anime Rated 1 Out Of 5","Only The Worst","Only Titles Without Ratings"];
+const gText=["Best","4/5","3/5","2/5","1/5","Worst","NR"];
+
+var divDonutCon=d.createElement("div");
+divDonutCon.className="donut-container";
+var divDonutChartBlock=d.createElement("div");
+divDonutChartBlock.className="donut-chart-block";
+var divDonutChart=d.createElement("div");
+divDonutChart.className="donut-chart";
+var divCenterCutOut=d.createElement("div");
+divCenterCutOut.className="center-cutout";
+var divCutOut;
+var divSegment;
+
 var maxPie=180;
 var totalarc=0;
 var totalprintpercent=0;
-var allanimesize=animetotals[0]+animetotals[1]+animetotals[2]+animetotals[3]+animetotals[4]+animetotals[5]+animetotals[6];
-for (const onetotal of animetotals) {
-currentIndex+=1;
-var percentOfTotal = onetotal/allanimesize;
+var allanimesize=an.length;
+
+for (let i = 1; i <= 7; i++) {
+trOne=d.createElement("tr");
+trOne.className=gClasses[i-1];
+trOne.title=gLongDescr[i-1];
+if (isAnimeList==1){trOne.setAttribute("onclick","javascript:filterTable('"+sTypes[i-1]+"');");}
+tdOne=d.createElement("td");
+tdOne.textContent=gText[i-1];
+tdTwo=d.createElement("td");
+tdTwo.id=tIDs[i-1];
+tdTwo.title=animetotals[i-1].toString()+" of "+anSize;
+trOne.appendChild(tdOne);
+trOne.appendChild(tdTwo);
+tBody.appendChild(trOne);
+
+divCutOut=d.createElement("div");
+divCutOut.className="cutout";
+divCutOut.id="segment"+i.toString();
+divSegment=d.createElement("div");
+divSegment.className="segment-size "+gClasses[i-1];
+divCutOut.appendChild(divSegment);
+divDonutChart.appendChild(divCutOut);
+
+//Calulate arcs
+var percentOfTotal = animetotals[i-1]/allanimesize;
 var currentarc=Math.round(maxPie * percentOfTotal);
+if (currentarc<0) {currentarc=0;}
 var currentprintpercent=Math.round(percentOfTotal*100);
-if ((currentIndex==6) && (totalarc+currentarc<maxPie)) {
-currentarc+=(maxPie-(totalarc+currentarc));
+//Deal with rounding errors in last pie slice
+if (i==7 ) {
+if (totalarc+currentarc<maxPie) {currentarc+=(maxPie-(totalarc+currentarc));}
+if (currentprintpercent+totalprintpercent<100) {currentprintpercent+=(100-(totalprintpercent+currentprintpercent));}
 }
-if ((currentIndex==6) && (currentprintpercent+totalprintpercent<100)) {
-currentprintpercent+=(100-(totalprintpercent+currentprintpercent));
-}
-var outerPie = d.getElementById("segment" + (currentIndex+1).toString());
-var innerPie = outerPie.getElementsByTagName("div")[0];
-outerPie.style.transform="rotate(" + totalarc.toString() + "deg)";
-innerPie.style.transform="rotate(" + currentarc.toString() + "deg)";
+//Render slices
+divCutOut.style.transform="rotate(" + totalarc.toString() + "deg)";
+divSegment.style.transform="rotate(" + currentarc.toString() + "deg)";
+//Don't show empty slices
 if (currentarc==0) {
-outerPie.style.display="none";
-innerPie.style.display="none";
+divCutOut.style.display="none";
+divSegment.style.display="none";
 } else {
-outerPie.style.display="block";
-innerPie.style.display="block";
+divCutOut.style.display="block";
+divSegment.style.display="block";
 }
 totalarc+=currentarc;
 totalprintpercent+=currentprintpercent;
-var celValue;
-switch (currentIndex) {
-case 1:
-celValue=d.getElementById("td4");
-break;
-case 2:
-celValue=d.getElementById("td3");
-break;
-case 3:
-celValue=d.getElementById("td2");
-break;
-case 4:
-celValue=d.getElementById("td1");
-break;
-case 5:
-celValue=d.getElementById("tdworst");
-break;
-case 6:
-celValue=d.getElementById("tdnr");
-break;
-default:
-celValue=d.getElementById("tdbest");
-}//switch
-var printPercent = currentprintpercent.toString()+"%";
-celValue.textContent=printPercent;
-celValue.setAttribute("title", onetotal.toString() + " of " + allanimesize.toString());
-}//for animetotals
-var printTotal = "Breakdown Of " + allanimesize.toString() + " Anime";;
-var dText=d.getElementById("donutText");
-dText.textContent=printTotal;
-}//Graphs Exist
+tdTwo.textContent=currentprintpercent.toString()+"%";
+}//For loop
+tGraphData.appendChild(tBody);
+divGraphCon.appendChild(tGraphData)
+aGraph.appendChild(divGraphCon);
+divDonutChart.appendChild(divCenterCutOut);
+divDonutChartBlock.appendChild(divDonutChart);
+divDonutCon.appendChild(divDonutChartBlock);
+aGraph.appendChild(divDonutCon);
+aGraph.style.width="200px";
+if (isAnimeList==0) {
+aGraph.style.cursor="pointer";
+aGraph.setAttribute("onclick","location.href='https://aarg.blogspot.com/p/anime-list.html';");
+aGraph.title="Click To Open Anime List";
 }
+}//Anime graph exists
+}//function
 
 
 /* -------------------------------------------- */
