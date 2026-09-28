@@ -981,7 +981,10 @@ for (let i = 1; i <= 7; i++) {
 trOne=d.createElement("tr");
 trOne.className=gClasses[i-1];
 trOne.title=gLongDescr[i-1];
-if (isAnimeList==1){trOne.setAttribute("onclick","javascript:filterTable('"+sTypes[i-1]+"');");trOne.id="trnr";}
+if (isAnimeList==1){
+trOne.setAttribute("onclick","javascript:filterTable('"+sTypes[i-1]+"');");
+if (i==7){trOne.id="trnr";}
+}
 tdOne=d.createElement("td");
 tdOne.textContent=gText[i-1];
 tdTwo=d.createElement("td");
