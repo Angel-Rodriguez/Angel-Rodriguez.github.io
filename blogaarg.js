@@ -904,7 +904,7 @@ destinationDiv.innerHTML=targetDiv.innerHTML;
 /* -------------------------------------------- */
 
 
-function Do_AnimeGraph2() {
+function Do_AnimeGraph() {
 var d=document;
 var aGraph=d.getElementById("AnimeGraph");
 
