@@ -298,7 +298,6 @@ isFound=curIndex;
 }
 while (isFound<0)
 }//has sidebar
-
 return curIndex;
 }
 
@@ -344,6 +343,7 @@ if (popularpostsDivs[r].className=='aargcontainer'){
 aargcontentDiv=popularpostsDivs[r];
 }}//for/if-r-popularpostsDivs
 var strAargDiv = new String(aargcontentDiv.innerHTML);
+//Check for duplicates
 if (strAargDiv.indexOf(randompoststhumb)==-1) {
 aargcontentDiv.innerHTML+='<div class="rcitembox"><a href="'+randompostsurl+'"><img src="'+noImageStr+'" data-src="'+randompoststhumb+'" class="rcitemimg" alt="" title="'+randompoststitle+'"/></a><br/><a href="'+randompostsurl+'" title="'+randompoststitle+'" class="rcitemtxt">'+randompoststitle+'</a></div>';
 }}
@@ -396,10 +396,8 @@ if ((thisItem.indexOf(currentPath) >-1) || (thisItem.indexOf(currentUrl) >-1)){
 currentPageID=i;
 break;
 }}
-
 return currentPageID;
 }
-
 
 function Do_Ring(ringname, thisring) {
 var d=document;
@@ -571,7 +569,6 @@ isFound=0;
 }
 return isFound;
 }//function
-
 
 function Do_RatingSnippet() {
 var d=document;
@@ -988,7 +985,7 @@ trOne.title=gLongDescr[zCount]+" (Click to Filter Anime List)";
 if (i==7){trOne.id="trnr";}
 } else {
 trOne.title=gLongDescr[zCount];
-}
+}//isAnimeList
 tdOne=d.createElement("td");
 tdOne.textContent=gText[zCount];
 tdTwo=d.createElement("td");
@@ -1061,9 +1058,9 @@ var aTable=d.getElementById("AnimeList");
 if (String(aTable)!='null') { //Anime list exists
 var tBody=aTable.getElementsByTagName('tbody');
 for (const oneanime of an) {
-var oneTr = document.createElement("TR");
-var oneTd = document.createElement("TD");
-var twoTd = document.createElement("TD");
+var oneTr = d.createElement("TR");
+var oneTd = d.createElement("TD");
+var twoTd = d.createElement("TD");
 if (oneanime.r=="") {//No rating
     if (oneanime.w=="") {//No link
     oneTd.createTextNode("NR");//No link;No rating
@@ -1071,12 +1068,12 @@ if (oneanime.r=="") {//No rating
     twoTd.createTextNode(oneanime.n.toString());
     oneTr.appendChild(twoTd);
     } else {
-    var aLink = document.createElement("A");
+    var aLink = d.createElement("A");
     aLink.href = oneanime.w.toString();
     aLink.textContent = "NR";//Link;No rating
     oneTd.appendChild(aLink);
     oneTr.appendChild(oneTd);
-    aLink = document.createElement("A");
+    aLink = d.createElement("A");
     aLink.href = oneanime.w.toString();
     aLink.textContent = oneanime.n.toString();
     twoTd.appendChild(aLink);
@@ -1089,12 +1086,12 @@ if (oneanime.r=="") {//No rating
     twoTd.createTextNode(oneanime.n.toString());
     oneTr.appendChild(twoTd);
     } else {
-    var aLink = document.createElement("A");
+    var aLink = d.createElement("A");
     aLink.href = oneanime.w.toString();
     aLink.textContent=oneanime.r.toString();//Link
     oneTd.appendChild(aLink);
     oneTr.appendChild(oneTd);
-    aLink = document.createElement("A");
+    aLink = d.createElement("A");
     aLink.href = oneanime.w.toString();
     aLink.textContent=oneanime.n.toString();
     twoTd.appendChild(aLink);

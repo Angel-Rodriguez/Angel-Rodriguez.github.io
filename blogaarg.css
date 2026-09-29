@@ -337,7 +337,7 @@ top:3px;
 display:none;
 }
 .widget.Header H1 {
-font-size:20pt;
+font-size:24pt;
 }
 /* Background image for blog name. */
 @keyframes blognameshift {
@@ -1722,6 +1722,12 @@ margin:30px;
 background-color:white !important;
 color: black !important;
 text-shadow: none;
+}
+pre, code {
+white-space: pre-wrap !important; /* Forces long lines to wrap instead of cutting off */
+overflow: visible !important;     /* Expands the element container to show all code */
+height: auto !important;          /* Prevents any fixed heights from cropping code */
+max-height: none !important;      /* Removes constraints that cause vertical scrolling */
 }}
 
 
