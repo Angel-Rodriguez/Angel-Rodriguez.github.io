@@ -649,13 +649,13 @@ function Do_RatingImageSubstitution() {
 var d=document;
 var whatDoc;
 whatDoc=d.getElementsByTagName('img');
-var rc = document.createElement("SPAN");
-var rn = document.createElement("SPAN");
-var s1 = document.createElement("SPAN");
-var s2 = document.createElement("SPAN");
-var s3 = document.createElement("SPAN");
-var s4 = document.createElement("SPAN");
-var s5 = document.createElement("SPAN");
+var rc = d.createElement("SPAN");
+var rn = d.createElement("SPAN");
+var s1 = d.createElement("SPAN");
+var s2 = d.createElement("SPAN");
+var s3 = d.createElement("SPAN");
+var s4 = d.createElement("SPAN");
+var s5 = d.createElement("SPAN");
 rc.setAttribute("class", "rating-container");
 rn.setAttribute("class", "rating-number");
 for (var i=0;i<whatDoc.length;i++) {
@@ -711,7 +711,7 @@ var ratingvalue=0;
 var atricletitle;
 var ratingimage='';
 var postContainer;
-var vgmdb='';
+var musicdb='';
 bq=d.getElementsByTagName('blockquote');
 for (var i=0;i<bq.length;i++){
 if (bq[i].className=='music'){
@@ -719,25 +719,21 @@ bqimgs=bq[i].getElementsByTagName('img');
 if (bqimgs.length > 0) {
 bqimgs[0].setAttribute("style", "border-bottom: 2px solid #99AACC;");
 postContainer=bq[i].firstChild.nextSibling;
-articlerating = new String(bqimgs[0].getAttribute('cdrating'));
-if ((articlerating=="undefined") || (articlerating=="null")) {
 articlerating = new String(bqimgs[0].getAttribute('id'));
-}
-
+if ((articlerating=="undefined") || (articlerating=="null")) {articlerating="0";}
 atricletitle = new String(bqimgs[0].getAttribute('alt'));
+if ((atricletitle=="undefined") || (atricletitle=="null")) {atricletitle="Title Not Found";}
+musicdb = new String(bqimgs[0].getAttribute('longdesc'));
+if ((musicdb=="undefined") || (musicdb=="null")) {musicdb="#";}
 
-vgmdb = new String(bqimgs[0].getAttribute('vgmdb'));
-if ((vgmdb=="undefined") || (vgmdb=="null")) {
-vgmdb = new String(bqimgs[0].getAttribute('longdesc'));
-}
-var rc = document.createElement("SPAN");
+var rc = d.createElement("SPAN");
 rc.setAttribute("class", "rating-container-small");
-var rn = document.createElement("SPAN");
-var s1 = document.createElement("SPAN");
-var s2 = document.createElement("SPAN");
-var s3 = document.createElement("SPAN");
-var s4 = document.createElement("SPAN");
-var s5 = document.createElement("SPAN");//Not used
+var rn = d.createElement("SPAN");
+var s1 = d.createElement("SPAN");
+var s2 = d.createElement("SPAN");
+var s3 = d.createElement("SPAN");
+var s4 = d.createElement("SPAN");
+var s5 = d.createElement("SPAN");//Not used
 rn.setAttribute("class", "rating-number-small");
 
 if (parseInt(articlerating, 10) != 'NaN') {
@@ -767,8 +763,8 @@ rc.appendChild(s4);
 rc.setAttribute("title", "Music Rating for " + atricletitle + ": " + new String(isFound) + " out of 4");
 
 postContainer.parentNode.insertBefore(rc, postContainer.nextSibling);
-var tc = document.createElement("SPAN");
-var tn=document.createTextNode(atricletitle.toString());
+var tc = d.createElement("SPAN");
+var tn=d.createTextNode(atricletitle.toString());
 tc.setAttribute("class", "musicname");
 tc.appendChild(tn);
 bq[i].appendChild(tc);
@@ -778,12 +774,12 @@ bqa[0].setAttribute("title", "Cover art for " + atricletitle);
 }
 
 //Discogs
-if (vgmdb.indexOf('http')>-1){
-var va = document.createElement("A");
-va.href=vgmdb;
+if (musicdb.indexOf('http')>-1){
+var va = d.createElement("A");
+va.href=musicdb;
 va.setAttribute("target", "_blank");
-var vi = document.createElement("IMG");
-if (vgmdb.indexOf("discogs")>-1) {
+var vi = d.createElement("IMG");
+if (musicdb.indexOf("discogs")>-1) {
 vi.src="data:image/png;base64,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";
 vi.setAttribute("alt", "Open Discogs");
 va.setAttribute("title", "Open Discogs");
@@ -818,10 +814,10 @@ var cw = d.documentElement.clientWidth;
 if (cw>=750) {
 for (var i=0;i<divs.length;i++){
 if (divs[i].className=="bg-photo-overlay") {
-var bgs = document.createElement("DIV");
+var bgs = d.createElement("DIV");
 bgs.setAttribute("class", "bg-square");
 for (var c=1; c<=numSquares; c++){
-var bgo = document.createElement("DIV");
+var bgo = d.createElement("DIV");
 bgo.setAttribute("class", "bg-onesquare");
 bgs.appendChild(bgo);
 }//for c
@@ -1155,7 +1151,7 @@ if (an[ca].w==searchItem) {ribbonName=an[ca].l;isFound=1;break;}
 if ((ribbonName=='undefined') || (ribbonName=='null') || (ribbonName=='')) {
 ribbonName="Anime";
 }
-var ra = document.createElement("a");
+var ra = d.createElement("a");
 
 switch (ribbonName.replace("@","").replace(" ","")) {
 case "Theater":
@@ -1197,13 +1193,13 @@ ra.setAttribute("href", "https://aarg.blogspot.com/p/anime-list.html");
 
 ra.setAttribute("title", "List " + ribbonName);
 
-var oc = document.createElement("div");
+var oc = d.createElement("div");
 oc.setAttribute("class", "ribbon_container");
-var bx = document.createElement("div");
+var bx = d.createElement("div");
 bx.setAttribute("class", "ribbon_outer_container");
-var dv = document.createElement("div");
+var dv = d.createElement("div");
 dv.setAttribute("class", "ribbon_inner_container");
-var ic = document.createElement("div");
+var ic = d.createElement("div");
 if (ribbonName!="Anime") {
 if (ribbonName=="How To") {
 ic.setAttribute("class", "ribbon_tabs red");
@@ -1213,8 +1209,8 @@ ic.setAttribute("class", "ribbon_tabs green");
 } else {
 ic.setAttribute("class", "ribbon_tabs");
 }
-var sp = document.createElement("span");//empty span
-var tx = document.createTextNode(ribbonName);
+var sp = d.createElement("span");//empty span
+var tx = d.createTextNode(ribbonName);
 sp.appendChild(tx);//Add ribbon text to span
 ra.appendChild(sp);//Add span to link = a href
 ic.appendChild(ra);//Add link to wrapper = ribbon_tabs
