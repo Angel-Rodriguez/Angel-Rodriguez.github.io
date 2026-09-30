@@ -493,10 +493,10 @@ stroke:white;
 stroke:white;
 }
 .sticky #svghead {
-stroke:black;
+stroke:#707070;
 }
 .sticky #svgbody {
-stroke:black;
+stroke:#707070;
 }
 #AboutMeText {
 font-size:40%;
@@ -506,7 +506,7 @@ padding-left:3px;
 font-weight:bold;
 }
 .sticky #AboutMeText {
-color:black;
+color:#707070;
 }
 /* Search Icon */
 .search-expand {
