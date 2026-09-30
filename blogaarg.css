@@ -472,6 +472,7 @@ background: none;
 50%  {background-color: rgba(0,0,0,0.2);}
 100% {background-color: rgba(255,255,255,0.1);}
 }
+/* About Me Icon and Text */
 #AboutMeLink {
 background-color: rgba(255,255,255,0.2);
 animation-name: iconcolorshift;
@@ -481,11 +482,33 @@ animation-iteration-count: infinite;
 border-radius:32px;
 width:32px;
 height:32px;
+position:absolute;
+left:0px;
+top:4px;
 }
-.sticky #AboutMeLink {
-background-color: rgba(0,0,0,0.3);
-animation-name: none;
+#svghead {
+stroke:white;
 }
+#svgbody {
+stroke:white;
+}
+.sticky #svghead {
+stroke:black;
+}
+.sticky #svgbody {
+stroke:black;
+}
+#AboutMeText {
+font-size:40%;
+color:white;
+text-decoration:none;
+padding-left:3px;
+font-weight:bold;
+}
+.sticky #AboutMeText {
+color:black;
+}
+/* Search Icon */
 .search-expand {
 background-color: rgba(255,255,255,0.2);
 animation-name: iconcolorshift;
