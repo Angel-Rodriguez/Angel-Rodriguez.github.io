@@ -2097,6 +2097,27 @@ grid-column-start: 1;
 grid-column-end: 3;
 display:block !important;
 }
+.blog-posts.hfeed.container article + article .snippet-thumbnail {
+transform: scale(.75);
+margin-left:-20px;
+margin-right:0px;
+}
+.blog-posts.hfeed.container article + article .post-title {
+line-height:0.9;
+}
+.blog-posts.hfeed.container article + article .post-title a {
+font-size:80%;
+}
+.blog-posts.hfeed.container article + article .snippet-item {
+line-height:1.35;
+}
+.blog-posts.hfeed.container article + article .snippet-item a {
+font-size:80%;
+}
+.blog-posts.hfeed.container article + article {
+padding-left:20px;
+padding-right:20px;
+}
 }}
 
 
