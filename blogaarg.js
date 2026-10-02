@@ -419,7 +419,13 @@ var links = [];
 var divs=d.getElementsByTagName('div');
 for (var i=0;i<divs.length;i++){
 if(divs[i].className=='post-footer-line post-footer-line-2'){
-var qIH=new String(divs[i].innerHTML);//Labels
+var dLinks=divs[i].getElementsByTagName('a');//Labels
+var qIH="";
+if (dLinks.length>0){
+for (var n=0;n<dLinks.length;n++){
+qIH+=dLinks[n].textContent;
+}}
+//qIH=new String(divs[i].innerHTML);//Labels
 switch (ringname) {
 case "Anime":
 case "Mainstream":
