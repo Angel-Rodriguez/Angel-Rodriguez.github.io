@@ -423,7 +423,7 @@ var qIH=new String(divs[i].innerHTML);
 switch (ringname) {
 case "Anime":
 case "Mainstream":
-if (qIH.indexOf(ringname) > -1) {useNavigation=1;}
+if ((qIH.indexOf(ringname) > -1) || (qIH.indexOf('Anime') > 1) && (qIH.length > 5)) {useNavigation=1;}
 break;
 case "Other":
 if ((qIH.indexOf('Anime') == -1) && (qIH.indexOf('Mainstream') == -1) && (qIH.length > 5)) {useNavigation=1;}
