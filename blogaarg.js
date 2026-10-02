@@ -419,14 +419,14 @@ var links = [];
 var divs=d.getElementsByTagName('div');
 for (var i=0;i<divs.length;i++){
 if(divs[i].className=='post-footer-line post-footer-line-2'){
-var qIH=new String(divs[i].innerHTML);
+var qIH=new String(divs[i].innerHTML);//Labels
 switch (ringname) {
 case "Anime":
 case "Mainstream":
-if ((qIH.indexOf(ringname) > -1) || (qIH.indexOf('Anime') > 1) && (qIH.length > 5)) {useNavigation=1;}
+if (((qIH.indexOf(ringname) > -1) || (qIH.indexOf('Anime') > 1)) && (qIH.length > 5)) {useNavigation=1;}
 break;
 case "Other":
-if ((qIH.indexOf('Anime') == -1) && (qIH.indexOf('Mainstream') == -1) && (qIH.length > 5)) {useNavigation=1;}
+if (((qIH.indexOf('Anime') == -1) && (qIH.indexOf('Mainstream') == -1)) && (qIH.length > 5)) {useNavigation=1;}
 break;
 }//switch
 }}
