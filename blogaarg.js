@@ -423,11 +423,11 @@ var dLinks=divs[i].getElementsByTagName('a');//Labels
 var qIH="";
 if (dLinks.length>0){
 for (var n=0;n<dLinks.length;n++){
-qIH+=dLinks[n].textContent;
+qIH+=dLinks[n].textContent+" ";
 }}
-//qIH=new String(divs[i].innerHTML);//Labels
 switch (ringname) {
 case "Anime":
+if (qIH.indexOf(ringname) > -1) {useNavigation=1;}
 case "Mainstream":
 if (((qIH.indexOf(ringname) > -1) || (qIH.indexOf('Anime') > 1)) && (qIH.length > 5)) {useNavigation=1;}
 break;
