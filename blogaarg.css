@@ -1033,7 +1033,6 @@ text-decoration:none;
 float:left;
 width:80px;
 height:8px;
-padding-right:10px;
 padding-bottom:5px;
 display:table;
 position:relative;
@@ -1098,7 +1097,6 @@ border-radius: 5px;
 .rating-container-small .rating-number-small {
 float:left;
 color: #2C2EA5;
-display:inline-block;
 width:20px;
 height:0px;
 position:relative;
